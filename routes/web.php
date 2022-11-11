@@ -60,8 +60,8 @@ Route::post('/messages/update', [MessagesController::class, 'update'])->middlewa
 // messages end
 
 // site info start
-Route::get('/site/setting', [SiteInfoController::class, 'index'])->middleware('auth')->name('siteinfo');
-Route::post('/site/setting', [SiteInfoController::class, 'update'])->middleware('auth')->name('siteinfo.update');
+Route::get('/siteinfo', [SiteInfoController::class, 'index'])->middleware('auth')->name('siteinfo');
+Route::post('/siteinfo/update', [SiteInfoController::class, 'update'])->middleware('auth')->name('siteinfo.update');
 // site info end
 
 // allusers start

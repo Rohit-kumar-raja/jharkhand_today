@@ -1,3 +1,4 @@
+@auth
 <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
     <div class="sidebar-inner px-4 pt-3">
         <div class="user-card d-flex d-md-none justify-content-between justify-content-md-center pb-4">
@@ -167,3 +168,5 @@
         </ul>
     </div>
 </nav>
+
+@endauth
