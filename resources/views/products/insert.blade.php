@@ -1,11 +1,11 @@
 <!-- Large modal -->
 <x-layout>
     @slot('body')
-        <div class="modal-content mt-5 ">
+        <div class="modal-content mt-5  mb-5">
             <div class="modal-header">
-                <h2 class="h6 modal-title"> Add Products <a class="btn btn-sm btn-secondary"
+                <h2 class="h6 modal-title"><a class="btn btn-sm btn-secondary"
                         href="{{ route('products.product') }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i> All
-                        products</a> </h2>
+                        news</a> Add News </h2>
             </div>
             @if (session('store'))
                 <div class="alert alert-success">
@@ -61,7 +61,7 @@
 
 
                             <div class="form-group col-sm-12">
-                                <label for="" class="text-dark"> <b> Log Description </b> </label>
+                                <label for="" class="text-dark"> <b> Full News </b> </label>
                                 <textarea required name="log_description" type="text" class="form-control ckeditor" placeholder="message"></textarea>
                             </div>
 
@@ -71,12 +71,12 @@
                                 <input name="youtube" type="text" class="form-control" placeholder="Youtube Link">
                             </div>
 
-                            <div class="form-group col-sm-4">
+                            {{-- <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b> <i class="fa-thin fa-360-degrees"></i> 360
                                         view Image Link</b> </label>
                                 <input name="view360" type="text" class="form-control"
                                     placeholder=" 360 view image link ">
-                            </div>
+                            </div> --}}
 
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>status</b> </label>
@@ -85,7 +85,7 @@
                                     <option value="0">Deactive</option>
                                 </select>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-sm-3 imgUp mt-5">
                                     <div class="imagePreview"></div>
@@ -226,5 +226,9 @@
         margin-top: 0px;
         cursor: pointer;
         font-size: 15px;
+    }
+    .fa-plus:before
+    {
+        margin-left: -3px;
     }
 </style>

@@ -86,7 +86,7 @@
 
 
                                 <div class="form-group col-sm-12">
-                                    <label for="" class="text-dark"> <b> Log Description </b> </label>
+                                    <label for="" class="text-dark"> <b> Full News </b> </label>
                                     <textarea required name="log_description" type="text" class="form-control ckeditor" placeholder="message">{{ $data->log_description }}</textarea>
                                 </div>
 
@@ -100,13 +100,13 @@
                                         placeholder="Youtube Link">
                                 </div>
 
-                                <div class="form-group col-sm-4">
+                                {{-- <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b> <i class="fa-thin fa-360-degrees"></i>
                                             360
                                             view Image Link</b> </label>
                                     <input value="{{ $data->view360 }}" name="view360" type="text" class="form-control"
                                         placeholder=" 360 view image link ">
-                                </div>
+                                </div> --}}
 
 
 
@@ -118,7 +118,7 @@
                                     </select>
                                 </div>
 
-                              
+
 
                                 <div class="row">
                                     <div class="col-sm-3 imgUp mt-5">
@@ -135,7 +135,7 @@
                                     $images = DB::table('product_images')
                                         ->where('product_id', $data->id)
                                         ->get();
-                                    
+
                                 @endphp
                                 <div class="row">
                                     @foreach ($images as $image)
@@ -285,5 +285,9 @@
         margin-top: 0px;
         cursor: pointer;
         font-size: 15px;
+    }
+    .fa-plus:before
+    {
+        margin-left: -3px;
     }
 </style>

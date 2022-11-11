@@ -64,7 +64,7 @@
                             <th>category </th>
                             <th>Title </th>
                             <th>youtube</th>
-                            <th>view360</th>
+                            {{-- <th>view360</th> --}}
                             <th>Description</th>
                             <th>Action 1</th>
                             <th>Action 2</th>
@@ -92,7 +92,7 @@
                                 <td> {{ $services->categories->name }} </td>
                                 <td> {{ $services->log_title }} </td>
                                 <td> {{ $services->youtube }} </td>
-                                <td> {{ $services->view360 }} </td>
+                                {{-- <td> {{ $services->view360 }} </td> --}}
 
 
                                 @include('products.maasage')

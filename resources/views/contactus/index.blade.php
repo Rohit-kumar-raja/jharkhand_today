@@ -11,7 +11,7 @@
                                 </path>
                             </svg></a></li>
                     <li class="breadcrumb-item"><a href="#">{{ env('APP_NAME') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">contactus</li>
+                    <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
                 </ol>
             </nav>
             {{-- @include('contactus.insert') --}}
@@ -19,7 +19,7 @@
 
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0 col-10">
-                    <h1 class="h4">contactus</h1>
+                    <h1 class="h4">Contact Us</h1>
 
                 </div>
                 {{-- <div class="col-2">

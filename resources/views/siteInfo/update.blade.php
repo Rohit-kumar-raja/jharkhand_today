@@ -55,18 +55,18 @@
                                 @csrf
                                 <input name="id" type="hidden" value="{{ $data->id }}">
 
-                      
+
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Address</b> </label>
                                     <input required name="address" value="{{ $data->address }}" type="text" class="form-control" placeholder="Address">
                                 </div>
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>Phone No 1</b> </label>
+                                    <label for="" class="text-dark"> <b>Phone No. 1</b> </label>
                                     <input value="{{ $data->phone }}" required name="phone" type="text" class="form-control" placeholder="Phone no 1">
                                 </div>
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>Phone No 2</b> </label>
+                                    <label for="" class="text-dark"> <b>Phone No. 2</b> </label>
                                     <input value="{{ $data->phone2 }}" name="phone2" type="text" class="form-control" placeholder="Phone no 2">
                                 </div>
 
@@ -86,7 +86,7 @@
                                 </div>
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>Whatsapp No</b> </label>
+                                    <label for="" class="text-dark"> <b>Whatsapp No.</b> </label>
                                     <input value="{{ $data->whatsapp }}" name="whatsapp" type="text" class="form-control" placeholder="whatsapp">
                                 </div>
 
