@@ -44,7 +44,7 @@
 
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
                     data-bs-toggle="collapse" data-bs-target="#about"><span><span class="sidebar-icon"><i
-                                class="far fa-network-wired"></i> </span><span class="sidebar-text">About us</span>
+                                class="far fa-network-wired"></i> </span><span class="sidebar-text">Page Setting</span>
                     </span><span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -53,9 +53,11 @@
                         </svg></span></span>
                 <div class="multi-level collapse" role="list" id="about" aria-expanded="false">
                     <ul class="flex-column nav">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('about') }}"><span
-                                    class="sidebar-text-contracted">A</span>
-                                <span class="sidebar-text">About</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">
+                                <span class="sidebar-text-contracted">A</span>
+                                <span class="sidebar-text">Page Setting</span>
+                            </a>
+                        </li>
 
                 </div>
             </li>
@@ -76,7 +78,7 @@
                                     class="sidebar-text-contracted">C</span>
                                 <span class="sidebar-text">Category</span></a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('products.product') }}"><span
-                                    class="sidebar-text-contracted">S</span> <span class="sidebar-text">All
+                                    class="sidebar-text-contracted">N</span> <span class="sidebar-text">All
                                     News</span></a></li>
                     </ul>
                 </div>

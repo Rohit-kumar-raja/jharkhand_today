@@ -51,14 +51,14 @@ class ProductController extends Controller
             }
         }
 
-        for ($i = 0; $i < count($request->title); $i++) {
-            ProductFeature::insert([
-                'title' => $request->title[$i],
-                'description' => $request->description[$i],
-                'product_id' => $id,
-                'created_at' => date('Y-m-d h:m:s')
-            ]);
-        }
+        // for ($i = 0; $i < count($request->title); $i++) {
+        //     ProductFeature::insert([
+        //         'title' => $request->title[$i],
+        //         'description' => $request->description[$i],
+        //         'product_id' => $id,
+        //         'created_at' => date('Y-m-d h:m:s')
+        //     ]);
+        // }
 
         return redirect()->back()->with(['store' => 'Data successfully Saved ']);
     }
@@ -112,14 +112,14 @@ class ProductController extends Controller
             }
         }
 
-        for ($i = 0; $i < count($request->title); $i++) {
-            ProductFeature::insert([
-                'title' => $request->title[$i],
-                'description' => $request->description[$i],
-                'product_id' => $id,
-                'created_at' => date('Y-m-d h:m:s')
-            ]);
-        }
+        // for ($i = 0; $i < count($request->title); $i++) {
+        //     ProductFeature::insert([
+        //         'title' => $request->title[$i],
+        //         'description' => $request->description[$i],
+        //         'product_id' => $id,
+        //         'created_at' => date('Y-m-d h:m:s')
+        //     ]);
+        // }
 
 
         return back()->with(['update' => "Data successfully Updated"]);

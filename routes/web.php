@@ -125,24 +125,24 @@ Route::get('/services/image/delte/{id}', [ServiceController::class, 'imageDelete
 
 
 // Product start
-Route::get('/products', [ProductController::class, 'index'])->middleware('auth')->name('products.product');
-Route::post('/products', [ProductController::class, 'store'])->middleware('auth')->name('products.product.insert');
-Route::get('/products/delete/{id}', [ProductController::class, 'destroy'])->middleware('auth')->name('products.product.delete');
-Route::get('/products/status/{id}', [ProductController::class, 'status'])->middleware('auth')->name('products.product.status');
-Route::get('/products/update/{id}', [ProductController::class, 'edit'])->middleware('auth')->name('products.product.edit');
-Route::post('/products/update', [ProductController::class, 'update'])->middleware('auth')->name('products.product.update');
-Route::get('/products/insert', [ProductController::class, 'insert'])->middleware('auth')->name('products.product.insert.view');
-Route::get('/products/image/delte/{id}', [ProductController::class, 'imageDelete'])->middleware('auth')->name('products.product.image.delete');
+Route::get('/news', [ProductController::class, 'index'])->middleware('auth')->name('products.product');
+Route::post('/news', [ProductController::class, 'store'])->middleware('auth')->name('products.product.insert');
+Route::get('/news/delete/{id}', [ProductController::class, 'destroy'])->middleware('auth')->name('products.product.delete');
+Route::get('/news/status/{id}', [ProductController::class, 'status'])->middleware('auth')->name('products.product.status');
+Route::get('/news/update/{id}', [ProductController::class, 'edit'])->middleware('auth')->name('products.product.edit');
+Route::post('/news/update', [ProductController::class, 'update'])->middleware('auth')->name('products.product.update');
+Route::get('/news/insert', [ProductController::class, 'insert'])->middleware('auth')->name('products.product.insert.view');
+Route::get('/news/image/delte/{id}', [ProductController::class, 'imageDelete'])->middleware('auth')->name('products.product.image.delete');
 
 // Products end
 
 // category start
-Route::get('/products/category', [ProductCategoryController::class, 'index'])->middleware('auth')->name('products.category');
-Route::post('/products/category', [ProductCategoryController::class, 'store'])->middleware('auth')->name('products.category.insert');
-Route::get('/products/category/delete/{id}', [ProductCategoryController::class, 'destroy'])->middleware('auth')->name('products.category.delete');
-Route::get('/products/category/status/{id}', [ProductCategoryController::class, 'status'])->middleware('auth')->name('products.category.status');
-Route::get('/products/category/update/{id}', [ProductCategoryController::class, 'edit'])->middleware('auth')->name('products.category.edit');
-Route::post('/products/category/update', [ProductCategoryController::class, 'update'])->middleware('auth')->name('products.category.update');
+Route::get('/news/category', [ProductCategoryController::class, 'index'])->middleware('auth')->name('products.category');
+Route::post('/news/category', [ProductCategoryController::class, 'store'])->middleware('auth')->name('products.category.insert');
+Route::get('/news/category/delete/{id}', [ProductCategoryController::class, 'destroy'])->middleware('auth')->name('products.category.delete');
+Route::get('/news/category/status/{id}', [ProductCategoryController::class, 'status'])->middleware('auth')->name('products.category.status');
+Route::get('/news/category/update/{id}', [ProductCategoryController::class, 'edit'])->middleware('auth')->name('products.category.edit');
+Route::post('/news/category/update', [ProductCategoryController::class, 'update'])->middleware('auth')->name('products.category.update');
 // category end
 
 // Product start

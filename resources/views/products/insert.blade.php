@@ -39,7 +39,7 @@
                             @csrf
                             <input type="hidden" name="created_at" value={{ date('Y-m-d') }}>
                             <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>type</b> </label>
+                                <label for="" class="text-dark"> <b> Select Category </b> </label>
                                 <select required name="category" class="form-control">
                                     <option selected disabled> - Select - </option>
                                     @foreach ($category as $data)
@@ -49,13 +49,13 @@
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>Full Title</b> </label>
-                                <input required onkeyup="url_data(this.value)" onkeyup="url_data(this.value)" name="log_title" type="text"
-                                    class="form-control" placeholder="name">
+                                <input required onkeyup="url_data(this.value)" onkeyup="url_data(this.value)"
+                                    name="log_title" type="text" class="form-control" placeholder="name">
                             </div>
 
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b> url </b> </label>
-                                <input  required id="url" name="slug" type="text" class="form-control"
+                                <input required id="url" name="slug" type="text" class="form-control"
                                     placeholder="url">
                             </div>
 
@@ -85,41 +85,7 @@
                                     <option value="0">Deactive</option>
                                 </select>
                             </div>
-
-                            <table class="table table-bordered table-responsive mt-3" id="dynamic_field"
-                                style="overflow-y:auto;">
-                                <thead>
-                                    <tr>
-                                        <th> Item No.</th>
-                                        <th> Title </th>
-                                        <th> Description</th>
-                                        <th> Add</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td width="2%"><input type="text" id="slno1" value="1" readonly
-                                                class="form-control form-control-sm" style="border:none;" /></td>
-                                        <td>
-                                            <input class="form-control form-control-sm title" type="text" size="7"
-                                                name="title[]" id="title[]" />
-                                        </td>
-
-                                        <td>
-                                            <input class="form-control form-control-sm product" id="description"
-                                                name="description[]">
-
-                                        </td>
-
-                                        <td><button type="button" name="add" id="add"
-                                                class="btn btn-success btn-sm"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></button></td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-
-
+                            
                             <div class="row">
                                 <div class="col-sm-3 imgUp mt-5">
                                     <div class="imagePreview"></div>
@@ -194,7 +160,10 @@
 
         $('#add').click(function() {
             i++;
-            $('#dynamic_field').append('<tr id="row' + i +'" class="dynamic-added  " ><td><input type="text" id="slno' + i + '" value="' + i +'" readonly class="form-control form-control-sm" style="border:none;" /></td> <td> <input class="form-control form-control-sm qty" type="text" size="7" name="title[]"  /> </td><td>   <input class="form-control form-control-sm product" name="description[]" /> </td> <td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove btn-sm">X</button></td></tr>');
+            $('#dynamic_field').append('<tr id="row' + i +
+                '" class="dynamic-added  " ><td><input type="text" id="slno' + i + '" value="' + i +
+                '" readonly class="form-control form-control-sm" style="border:none;" /></td> <td> <input class="form-control form-control-sm qty" type="text" size="7" name="title[]"  /> </td><td>   <input class="form-control form-control-sm product" name="description[]" /> </td> <td><button type="button" name="remove" id="' +
+                i + '" class="btn btn-danger btn_remove btn-sm">X</button></td></tr>');
         });
         $(document).on('click', '.btn_remove', function() {
             var button_id = $(this).attr("id");
