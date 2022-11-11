@@ -11,7 +11,7 @@ use Exception;
 
 class ProductController extends Controller
 {
-    public $page_name = 'Products';
+    public $page_name = 'News';
     public function index()
     {
         $Products = Product::all();

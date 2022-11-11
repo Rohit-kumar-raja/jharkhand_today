@@ -11,7 +11,7 @@
                                 </path>
                             </svg></a></li>
                     <li class="breadcrumb-item"><a href="#">{{ env('APP_NAME') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">ProductCategory</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$page}}</li>
                 </ol>
             </nav>
             @include('products.category.insert')
@@ -19,7 +19,7 @@
 
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0 col-10">
-                    <h1 class="h4">ProductCategory</h1>
+                    <h1 class="h4">{{$page}}</h1>
 
                 </div>
                 <div class="col-2">

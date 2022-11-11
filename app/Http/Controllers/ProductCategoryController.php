@@ -8,15 +8,11 @@ use Illuminate\Http\Request;
 
 class ProductCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public $page_name = "News Category";
     public function index()
     {
         $ProductCategory = ProductCategory::all();
-        return view('products.category.index', ['data' => $ProductCategory]);
+        return view('products.category.index', ['data' => $ProductCategory,'page'=>$this->page_name]);
     }
 
     /**
@@ -73,7 +69,7 @@ class ProductCategoryController extends Controller
     public function edit($id)
     {
         $data = ProductCategory::find($id);
-        return view('products.category.update', ["data" => $data,]);
+        return view('products.category.update', ["data" => $data,'page'=>$this->page_name]);
     }
 
     /**
