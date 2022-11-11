@@ -118,47 +118,7 @@
                                     </select>
                                 </div>
 
-                                <table class="table table-bordered table-responsive mt-3" id="dynamic_field"
-                                    style="overflow-y:auto;">
-                                    <thead>
-                                        <tr>
-                                            <th> Item No.</th>
-                                            <th> Title </th>
-                                            <th> Description</th>
-                                            <th> Add</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($data->feature as $feature)
-                                            <tr id="row{{$loop->iteration}}">
-                                                <td width="2%"><input type="text" id="slno1"
-                                                        value="{{ $loop->iteration }}" readonly
-                                                        class="form-control form-control-sm" style="border:none;" />
-                                                </td>
-                                                <td>
-                                                    <input class="form-control form-control-sm title" type="text"
-                                                        size="7" value="{{ $feature->title }}" name="title[]"
-                                                        id="title[]" />
-                                                </td>
-                                                <td>
-                                                    <input class="form-control form-control-sm product" id="description"
-                                                        value="{{ $feature->description }}" name="description[]">
-
-                                                </td>
-                                                <td>
-                                                    @if ($loop->iteration == 1)
-                                                        <button type="button" name="add" id="add"
-                                                            class="btn btn-success btn-sm"><i class="fa fa-plus"
-                                                                aria-hidden="true"></i></button>
-                                                    @else
-                                                        <button type="button" name="remove" id="{{$loop->iteration}}"
-                                                            class="btn btn-danger btn_remove btn-sm">X</button>
-                                                    @endif
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                              
 
                                 <div class="row">
                                     <div class="col-sm-3 imgUp mt-5">
