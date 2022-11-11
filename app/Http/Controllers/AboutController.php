@@ -6,8 +6,10 @@ use App\Models\About;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class AboutController extends Controller
 {
+    public $page_name = 'Page Setting';
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +18,7 @@ class AboutController extends Controller
     public function index()
     {
         $about = About::all();
-        return view('about.index', ['data' => $about]);
+        return view('about.index', ['data' => $about, 'page' => $this->page_name]);
     }
 
     /**
@@ -72,7 +74,7 @@ class AboutController extends Controller
     public function edit($id)
     {
         $data = About::find($id);
-        return view('about.update', ["data" => $data,]);
+        return view('about.update', ["data" => $data, 'page' => $this->page_name]);
     }
 
     /**

@@ -30,11 +30,11 @@
                                 @csrf
                                 <input type="hidden" value="0" name="Year">
                                 <input type="hidden" name="created_at" value={{ date('Y-m-d') }}>
-                                <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>Type</b> </label>
-                                    <input name="type" type="text" value="{{$data->type}}" class="form-control"
-                                        placeholder="Enter Type">
-                                </div>
+                                {{-- <div class="form-group col-sm-4"> --}}
+                                {{-- <label for="" class="text-dark"> <b>Type</b> </label> --}}
+                                <input hidden name="type" type="text" value="{{ $data->type }}" class="form-control"
+                                    placeholder="Enter Type">
+                                {{-- </div> --}}
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>name</b> </label>
                                     <input required name="name" value="{{ $data->name }}" type="text"

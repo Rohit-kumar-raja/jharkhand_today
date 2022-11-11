@@ -11,7 +11,7 @@
                                 </path>
                             </svg></a></li>
                     <li class="breadcrumb-item"><a href="#">{{ env('APP_NAME') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">About</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $page }}</li>
                 </ol>
             </nav>
             @include('about.insert')
@@ -19,7 +19,7 @@
 
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0 col-10">
-                    <h1 class="h4">About</h1>
+                    <h1 class="h4">{{ $page }}</h1>
 
                 </div>
                 <div class="col-2">
@@ -62,7 +62,7 @@
                     <thead class="text-dark">
                         <tr>
                             <th>S.NO</th>
-                            <th>Type</th>
+                            {{-- <th>Type</th> --}}
                             <th>name </th>
                             <th>images</th>
                             <th>Description</th>
@@ -74,7 +74,7 @@
                     <tfoot class="text-dark">
                         <tr>
                             <th>S.NO</th>
-                            <th>Type</th>
+                            {{-- <th>Type</th> --}}
                             <th>name </th>
                             <th>images</th>
                             <th>Description</th>
@@ -87,7 +87,7 @@
                         @foreach ($data as $about)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{$about->type}}</td>
+                                {{-- <td>{{$about->type}}</td> --}}
                                 <td> {{ $about->name }} </td>
                                 <td><img width="100" src="{{ asset('upload/about/' . $about->images) }}">
                                 </td>
