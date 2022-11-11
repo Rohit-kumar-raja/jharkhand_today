@@ -20,7 +20,7 @@ use App\Http\Controllers\ProductCategoryController;
 
 
 // end Dashboard
-Route::get('//', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 // slider start
 Route::get('/slider', [SliderController::class, 'index'])->middleware('auth')->name('slider');
