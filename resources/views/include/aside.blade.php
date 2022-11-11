@@ -63,7 +63,7 @@
 
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
                     data-bs-toggle="collapse" data-bs-target="#products"><span><span class="sidebar-icon"><i
-                                class="fab fa-product-hunt"></i></span><span class="sidebar-text">Products</span>
+                                class="fab fa-product-hunt"></i></span><span class="sidebar-text">News</span>
                     </span><span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -77,12 +77,12 @@
                                 <span class="sidebar-text">Category</span></a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('products.product') }}"><span
                                     class="sidebar-text-contracted">S</span> <span class="sidebar-text">All
-                                    Products</span></a></li>
+                                    News</span></a></li>
                     </ul>
                 </div>
             </li>
 
-
+            {{-- 
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
                     data-bs-toggle="collapse" data-bs-target="#submenu-app"><span><span class="sidebar-icon"><i
                                 class="far fa-hand-holding-box"></i> </span><span class="sidebar-text">Services</span>
@@ -102,10 +102,10 @@
                                     Services</span></a></li>
                     </ul>
                 </div>
-            </li>
+            </li> --}}
 
 
-            <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
+            {{-- <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
                     data-bs-toggle="collapse" data-bs-target="#career"><span><span class="sidebar-icon"><i
                                 class="far fa-hand-holding-box"></i> </span><span class="sidebar-text">Career</span>
                     </span><span class="link-arrow"><svg class="icon icon-sm" fill="currentColor"
@@ -130,7 +130,7 @@
                         </li>
                     </ul>
                 </div>
-            </li>
+            </li> --}}
 
 
             {{-- <li class="nav-item"><a href="{{ route('offering') }}" class="nav-link"><span class="sidebar-icon"><i
@@ -141,13 +141,13 @@
                             class="sidebar-icon"><i class="far fa-comments"></i> </span><span
                             class="sidebar-text">Enquiry</span> </span></a>
             </li> --}}
-            <li class="nav-item"><a href="{{ route('allusers') }}" class="nav-link"><span class="sidebar-icon"><i
+            {{-- <li class="nav-item"><a href="{{ route('allusers') }}" class="nav-link"><span class="sidebar-icon"><i
                             class="far fa-users"></i> </span><span class="sidebar-text">Teams</span></a>
             </li>
 
             <li class="nav-item"><a href="{{ route('clients') }}" class="nav-link"><span class="sidebar-icon"><i
                             class="far fa-user-tie"></i></span><span class="sidebar-text">Our Client</span></a>
-            </li>
+            </li> --}}
             <li class="nav-item"><a href="siteinfo" class="nav-link"><span class="sidebar-icon"><i
                             class="fa fa-info-circle"></i></span><span class="sidebar-text">Site Info</span></a>
             </li>
