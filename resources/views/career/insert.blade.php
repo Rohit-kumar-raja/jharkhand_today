@@ -32,7 +32,7 @@
                                 <label for="" class="text-dark"> <b> End Date</b> </label>
                                 <input required name="end" type="date" class="form-control" placeholder="start">
                             </div>
-                        
+
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>images</b> </label>
                                 <input accept="image/*" required name="images" type="file" class="form-control"

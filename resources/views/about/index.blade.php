@@ -63,9 +63,9 @@
                         <tr>
                             <th>S.NO</th>
                             {{-- <th>Type</th> --}}
-                            <th>name </th>
+                            <th>Title </th>
                             <th>images</th>
-                            <th>Description</th>
+                            <th>Page Data</th>
                             <th>Action 1</th>
                             <th>Action 2</th>
                             <th>Status</th>

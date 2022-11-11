@@ -17,12 +17,12 @@
                                 <input required name="title" type="text" class="form-control" placeholder="Title">
                             </div>
                             <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>sub_title</b> </label>
+                                <label for="" class="text-dark"> <b>sub title</b> </label>
                                 <input required name="sub_title" type="text" value="" class="form-control"
-                                    placeholder="sub_title">
+                                    placeholder="sub title">
                             </div>
                             <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>image_name</b> </label>
+                                <label for="" class="text-dark"> <b>image name</b> </label>
                                 <input required name="image_name" type="file" class="form-control"
                                     placeholder="image_name">
                             </div>

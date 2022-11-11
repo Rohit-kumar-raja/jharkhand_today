@@ -13,7 +13,7 @@
                         <div class="row">
                             @csrf
                             <input type="hidden" name="created_at" value={{ date('Y-m-d') }}>
-                  
+
                             <input type="hidden" value="0" name="Year">
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>Title</b> </label>
@@ -35,7 +35,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-sm-12">
-                                <label for="" class="text-dark "> <b>message</b> </label>
+                                <label for="" class="text-dark "> <b>Page Data</b> </label>
                                 <textarea required name="massage" type="text" class="form-control ckeditor" placeholder="message"></textarea>
                             </div>
                         </div>

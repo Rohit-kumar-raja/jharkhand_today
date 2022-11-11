@@ -61,9 +61,9 @@
                 <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
                     <thead class="text-dark">
                         <tr>
-                            <th>S.NO</th>
+                            <th>S. NO</th>
                             <th>title </th>
-                            <th>sub_title </th>
+                            <th>sub title </th>
                             <th>Image</th>
                             <th>Read more Link </th>
                             <th>Action 1</th>

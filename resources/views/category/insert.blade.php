@@ -17,13 +17,13 @@
                                 <label for="" class="text-dark"> <b>name</b> </label>
                                 <input required name="name" type="text" class="form-control" placeholder="name">
                             </div>
-                        
+
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>images</b> </label>
                                 <input accept="image/*" required name="images" type="file" class="form-control"
                                     placeholder="images">
                             </div>
-                          
+
 
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>status</b> </label>
@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b> Short Description </b> </label>
-                                <textarea required name="massage" type="text" class="form-control" placeholder="message"></textarea>
+                                <textarea required name="massage" type="text" class="form-control" placeholder="Description"></textarea>
                             </div>
                         </div>
                     </div>
