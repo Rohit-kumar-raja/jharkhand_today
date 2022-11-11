@@ -13,7 +13,7 @@ class SiteInfoController extends Controller
 
     public function index()
     {
-        $data = SiteInfo::find(1);
+        $data = SiteInfo::first();
         return view('siteInfo.update', ["data" => $data,]);
     }
 

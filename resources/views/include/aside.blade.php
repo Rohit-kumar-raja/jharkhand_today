@@ -41,6 +41,26 @@
             </li>
 
             {{-- home end --}}
+            <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
+                data-bs-toggle="collapse" data-bs-target="#products"><span><span class="sidebar-icon"><i class="fas fa-newspaper"></i></span><span class="sidebar-text">News</span>
+                </span><span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            clip-rule="evenodd"></path>
+                    </svg></span></span>
+            <div class="multi-level collapse" role="list" id="products" aria-expanded="false">
+                <ul class="flex-column nav">
+                    <li class="nav-item"><a class="nav-link" href="{{ route('products.category') }}"><span
+                                class="sidebar-text-contracted">C</span>
+                            <span class="sidebar-text">Category</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('products.product') }}"><span
+                                class="sidebar-text-contracted">N</span> <span class="sidebar-text">All
+                                News</span></a></li>
+                </ul>
+            </div>
+        </li>
+
 
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
                     data-bs-toggle="collapse" data-bs-target="#about"><span><span class="sidebar-icon"><i class="fas fa-cogs"></i></span><span class="sidebar-text">Page Setting</span>
@@ -62,26 +82,7 @@
             </li>
 
 
-            <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
-                    data-bs-toggle="collapse" data-bs-target="#products"><span><span class="sidebar-icon"><i class="fas fa-newspaper"></i></span><span class="sidebar-text">News</span>
-                    </span><span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"></path>
-                        </svg></span></span>
-                <div class="multi-level collapse" role="list" id="products" aria-expanded="false">
-                    <ul class="flex-column nav">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('products.category') }}"><span
-                                    class="sidebar-text-contracted">C</span>
-                                <span class="sidebar-text">Category</span></a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('products.product') }}"><span
-                                    class="sidebar-text-contracted">N</span> <span class="sidebar-text">All
-                                    News</span></a></li>
-                    </ul>
-                </div>
-            </li>
-
+    
             {{-- 
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
                     data-bs-toggle="collapse" data-bs-target="#submenu-app"><span><span class="sidebar-icon"><i
@@ -149,7 +150,7 @@
                             class="far fa-user-tie"></i></span><span class="sidebar-text">Our Client</span></a>
             </li> --}}
             <li class="nav-item"><a href="siteinfo" class="nav-link"><span class="sidebar-icon"><i
-                            class="fa fa-info-circle"></i></span><span class="sidebar-text">Site Info</span></a>
+                            class="fa fa-info-circle"></i></span><span class="sidebar-text">Site Setting</span></a>
             </li>
 
             <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700">
