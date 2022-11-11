@@ -23,7 +23,7 @@
              </div>
 
              {{-- norification section --}}
-             <div class="row">
+             {{-- <div class="row">
                  <div class="col-12 col-md-12 col-xxl-4 mb-4">
                      <div class="card notification-card border-0 shadow">
                          <div class="card-header d-flex align-items-center">
@@ -62,7 +62,7 @@
                          </div>
                      </div>
                  </div>
-             </div>
+             </div> --}}
              {{-- notification section end --}}
          @endslot
  </x-layout>
