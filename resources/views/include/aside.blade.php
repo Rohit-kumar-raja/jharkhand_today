@@ -43,8 +43,7 @@
             {{-- home end --}}
 
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
-                    data-bs-toggle="collapse" data-bs-target="#about"><span><span class="sidebar-icon"><i
-                                class="far fa-network-wired"></i> </span><span class="sidebar-text">Page Setting</span>
+                    data-bs-toggle="collapse" data-bs-target="#about"><span><span class="sidebar-icon"><i class="fas fa-cogs"></i></span><span class="sidebar-text">Page Setting</span>
                     </span><span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -64,8 +63,7 @@
 
 
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
-                    data-bs-toggle="collapse" data-bs-target="#products"><span><span class="sidebar-icon"><i
-                                class="fab fa-product-hunt"></i></span><span class="sidebar-text">News</span>
+                    data-bs-toggle="collapse" data-bs-target="#products"><span><span class="sidebar-icon"><i class="fas fa-newspaper"></i></span><span class="sidebar-text">News</span>
                     </span><span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
