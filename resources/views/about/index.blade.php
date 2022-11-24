@@ -28,6 +28,13 @@
 
                 </div>
             </div>
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
+            @endif
             @if (session('store'))
                 <div class="alert alert-success">
                     {{ session('store') }}
@@ -62,8 +69,8 @@
                     <thead class="text-dark">
                         <tr>
                             <th>S.NO</th>
-                            {{-- <th>Type</th> --}}
                             <th>Title </th>
+                            <th>Slug</th>
                             <th>images</th>
                             <th>Page Data</th>
                             <th>Action 1</th>
@@ -74,8 +81,8 @@
                     <tfoot class="text-dark">
                         <tr>
                             <th>S.NO</th>
-                            {{-- <th>Type</th> --}}
-                            <th>name </th>
+                            <th>Title </th>
+                            <th>Slug</th>
                             <th>images</th>
                             <th>Description</th>
                             <th>Action 1</th>
@@ -87,18 +94,20 @@
                         @foreach ($data as $about)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                {{-- <td>{{$about->type}}</td> --}}
                                 <td> {{ $about->name }} </td>
+                                                                <td>{{$about->slug}}</td>
+
                                 <td><img width="100" src="{{ asset('upload/about/' . $about->images) }}">
                                 </td>
                                 @include('about.maasage')
-                                <td><a href="#" data-bs-toggle="modal" data-bs-target="#modal-default{{ $about->id}}"
-                                        class="btn btn-info btn-sm"><i class="far fa-eye"></i></a> </td>
-                                <td><a href="{{ route('about.edit', $about->id) }}"
-                                        class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
+                                <td><a href="#" data-bs-toggle="modal"
+                                        data-bs-target="#modal-default{{ $about->id }}" class="btn btn-info btn-sm"><i
+                                            class="far fa-eye"></i></a> </td>
+                                <td><a href="{{ route('about.edit', $about->id) }}" class="btn btn-warning btn-sm"><i
+                                            class="far fa-edit"></i></a>
                                 </td>
-                                <td><a href="{{ route('about.delete', $about->id) }}"
-                                        class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
+                                <td><a href="{{ route('about.delete', $about->id) }}" class="btn btn-danger btn-sm"><i
+                                            class="fas fa-trash-alt"></i></a>
                                 </td>
                                 <td><a href="{{ route('about.status', $about->id) }}"
                                         class="btn @if ($about->status == 1) btn-success @endif btn-secondary  btn-sm">

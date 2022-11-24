@@ -39,6 +39,10 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:abouts'
+        ]);
         $id =   About::insertGetId($request->except('_token'));
         if ($request->file('images')) {
             About::where('id', $id)->update(['images' => $this->insert_image($request->file('images'), 'about')]);
@@ -86,12 +90,16 @@ class AboutController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:abouts'
+        ]);
         $id = $request->id;
         About::where('id', $id)->update($request->except("_token", 'images'));
         if ($request->file('images')) {
             $this->update_images('abouts', $id, $request->file('images'), 'about', 'images');
         }
-        return redirect('about')->with(['update' => "Data successfully Updated"]);
+        return redirect()->route('about')->with(['update' => "Data successfully Updated"]);
     }
 
     /**

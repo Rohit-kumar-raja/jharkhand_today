@@ -166,7 +166,7 @@
 </x-layout>
 <script>
     function url_data(data) {
-        document.query('url').value = data.replaceAll(' ', '+')
+        document.getElementById('url').value = data.replaceAll(' ', '+')
 
     }
 </script>

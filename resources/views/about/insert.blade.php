@@ -14,10 +14,13 @@
                             @csrf
                             <input type="hidden" name="created_at" value={{ date('Y-m-d') }}>
 
-                            <input type="hidden" value="0" name="Year">
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>Title</b> </label>
-                                <input required name="name" type="text" class="form-control" placeholder="name">
+                                <input onkeyup="url_data(this.value)" required name="name" type="text" class="form-control" placeholder="name">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="" class="text-dark"> <b>Slug</b> </label>
+                                <input id="url" required name="slug" type="text" class="form-control" placeholder="Enter Slug">
                             </div>
 
                             <div class="form-group col-sm-4">
@@ -50,3 +53,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    function url_data(data) {
+        document.getElementById('url').value = data.replaceAll(' ', '+')
+
+    }
+</script>
