@@ -41,37 +41,15 @@ Route::get('/testimonial/update/{id}', [TestimonialController::class, 'edit'])->
 Route::post('/testimonial/update', [TestimonialController::class, 'update'])->middleware('auth')->name('testimonial.update');
 // testimonial end
 
-// category start
-Route::get('/category', [CategoryController::class, 'index'])->middleware('auth')->name('category');
-Route::post('/category', [CategoryController::class, 'store'])->middleware('auth')->name('category.insert');
-Route::get('/category/delete/{id}', [CategoryController::class, 'destroy'])->middleware('auth')->name('category.delete');
-Route::get('/category/status/{id}', [CategoryController::class, 'status'])->middleware('auth')->name('category.status');
-Route::get('/category/update/{id}', [CategoryController::class, 'edit'])->middleware('auth')->name('category.edit');
-Route::post('/category/update', [CategoryController::class, 'update'])->middleware('auth')->name('category.update');
-// category end
 
-// messages start
-Route::get('/messages', [MessagesController::class, 'index'])->middleware('auth')->name('messages');
-Route::post('/messages', [MessagesController::class, 'store'])->middleware('auth')->name('messages.insert');
-Route::get('/messages/delete/{id}', [MessagesController::class, 'destroy'])->middleware('auth')->name('messages.delete');
-Route::get('/messages/status/{id}', [MessagesController::class, 'status'])->middleware('auth')->name('messages.status');
-Route::get('/messages/update/{id}', [MessagesController::class, 'edit'])->middleware('auth')->name('messages.edit');
-Route::post('/messages/update', [MessagesController::class, 'update'])->middleware('auth')->name('messages.update');
-// messages end
+
 
 // site info start
 Route::get('/siteinfo', [SiteInfoController::class, 'index'])->middleware('auth')->name('siteinfo');
 Route::post('/siteinfo/update', [SiteInfoController::class, 'update'])->middleware('auth')->name('siteinfo.update');
 // site info end
 
-// allusers start
-Route::get('/allusers', [AllUsersController::class, 'index'])->middleware('auth')->name('allusers');
-Route::post('/allusers', [AllUsersController::class, 'store'])->middleware('auth')->name('allusers.insert');
-Route::get('/allusers/delete/{id}', [AllUsersController::class, 'destroy'])->middleware('auth')->name('allusers.delete');
-Route::get('/allusers/status/{id}', [AllUsersController::class, 'status'])->middleware('auth')->name('allusers.status');
-Route::get('/allusers/update/{id}', [AllUsersController::class, 'edit'])->middleware('auth')->name('allusers.edit');
-Route::post('/allusers/update', [AllUsersController::class, 'update'])->middleware('auth')->name('allusers.update');
-// allusers end
+
 
 
 // clients start
@@ -101,28 +79,6 @@ Route::get('/page/setting/status/{id}', [AboutController::class, 'status'])->mid
 Route::get('/page/setting/update/{id}', [AboutController::class, 'edit'])->middleware('auth')->name('about.edit');
 Route::post('/page/setting/update', [AboutController::class, 'update'])->middleware('auth')->name('about.update');
 // about end
-
-// offering start
-Route::get('/offering', [OfferingController::class, 'index'])->middleware('auth')->name('offering');
-Route::post('/offering', [OfferingController::class, 'store'])->middleware('auth')->name('offering.insert');
-Route::get('/offering/delete/{id}', [OfferingController::class, 'destroy'])->middleware('auth')->name('offering.delete');
-Route::get('/offering/status/{id}', [OfferingController::class, 'status'])->middleware('auth')->name('offering.status');
-Route::get('/offering/update/{id}', [OfferingController::class, 'edit'])->middleware('auth')->name('offering.edit');
-Route::post('/offering/update', [OfferingController::class, 'update'])->middleware('auth')->name('offering.update');
-// offering end
-
-// services start
-Route::get('/services', [ServiceController::class, 'index'])->middleware('auth')->name('services');
-Route::post('/services', [ServiceController::class, 'store'])->middleware('auth')->name('services.insert');
-Route::get('/services/delete/{id}', [ServiceController::class, 'destroy'])->middleware('auth')->name('services.delete');
-Route::get('/services/status/{id}', [ServiceController::class, 'status'])->middleware('auth')->name('services.status');
-Route::get('/services/update/{id}', [ServiceController::class, 'edit'])->middleware('auth')->name('services.edit');
-Route::post('/services/update', [ServiceController::class, 'update'])->middleware('auth')->name('services.update');
-Route::get('/services/insert', [ServiceController::class, 'insert'])->middleware('auth')->name('services.insert.view');
-Route::get('/services/image/delte/{id}', [ServiceController::class, 'imageDelete'])->middleware('auth')->name('services.image.delete');
-
-// services end
-
 
 // Product start
 Route::get('/news', [ProductController::class, 'index'])->middleware('auth')->name('products.product');
