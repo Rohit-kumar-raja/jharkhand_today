@@ -29,7 +29,7 @@ Route::get('news_image', [NewsController::class, 'news_image']);
 
 // Sete setting start
 Route::get('site/setting/{slug}', [SitesettingController::class, 'index']);
-Route::get('site/info', [SitesettingController::class, 'news_image']);
+Route::get('site/info', [SitesettingController::class, 'site_info']);
 
 
 // site setting end

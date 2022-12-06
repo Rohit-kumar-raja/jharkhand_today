@@ -5,31 +5,51 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Models\ProductImage;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
-    function slider()
+    public function slider()
     {
-        $slider =  DB::table('slider_tbl')->where('status', 1)->get();
+        $slider = DB::table('slider_tbl')->where('is_deleted', 1)->get();
         return response()->json(['slider' => $slider]);
     }
 
-    function news_category()
+    public function news_category()
     {
-        $news_category = ProductCategory::where('status', 1)->paginate(10);
+        $news_category = ProductCategory::where('status', 1)->orderByDesc('id')->get();
         return response()->json(['news_category' => $news_category]);
     }
 
-    function news()
+    public function news()
     {
-        $news = Product::where('status', 1)->paginate(10);
+        // $news = Product::where('status', 1)->orderByDesc('id')->limit(12)->get();
+        $news = DB::select('SELECT
+        DISTINCT products.id,
+        `category`,
+        `product_categories`.`name` as `category_name`,
+        product_images.name as images,
+        `slug`,
+        `log_title`,
+        `log_description`,
+        `youtube`,
+        `view360`,
+        products.`status`,
+        products.`created_at`,
+        products.`updated_at`
+    FROM
+        `products`  JOIN `product_categories` JOIN `product_images`
+    WHERE
+        `products`.`category`=`product_categories`.`id` && 
+        `products`.id=`product_images`.product_id &&
+        `products`.status=1
+        order by `products`.id desc
+       ');
+
         return response()->json(['news' => $news]);
     }
 
-    function news_image($news_id)
+    public function news_image($news_id)
     {
         $news_image = Product::where('product_id', $news_id)->where('status', 1)->get();
         return response()->json(['news_image' => $news_image]);
