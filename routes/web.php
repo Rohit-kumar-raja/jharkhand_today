@@ -73,12 +73,12 @@ Route::post('/contactus/update', [ContactusController::class, 'update'])->middle
 
 
 // about start
-Route::get('/page_setting', [AboutController::class, 'index'])->middleware('auth')->name('about');
-Route::post('/page_setting', [AboutController::class, 'store'])->middleware('auth')->name('about.insert');
-Route::get('/page_setting/delete/{id}', [AboutController::class, 'destroy'])->middleware('auth')->name('about.delete');
-Route::get('/page_setting/status/{id}', [AboutController::class, 'status'])->middleware('auth')->name('about.status');
-Route::get('/page_setting/update/{id}', [AboutController::class, 'edit'])->middleware('auth')->name('about.edit');
-Route::post('/page_setting/update', [AboutController::class, 'update'])->middleware('auth')->name('about.update');
+Route::get('/page/setting', [AboutController::class, 'index'])->middleware('auth')->name('about');
+Route::post('/page/setting', [AboutController::class, 'store'])->middleware('auth')->name('about.insert');
+Route::get('/page/setting/delete/{id}', [AboutController::class, 'destroy'])->middleware('auth')->name('about.delete');
+Route::get('/page/setting/status/{id}', [AboutController::class, 'status'])->middleware('auth')->name('about.status');
+Route::get('/page/setting/update/{id}', [AboutController::class, 'edit'])->middleware('auth')->name('about.edit');
+Route::post('/page/setting/update', [AboutController::class, 'update'])->middleware('auth')->name('about.update');
 // about end
 
 // Product start

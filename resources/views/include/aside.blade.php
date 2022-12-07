@@ -150,7 +150,7 @@
             <li class="nav-item"><a href="{{ route('clients') }}" class="nav-link"><span class="sidebar-icon"><i
                             class="far fa-user-tie"></i></span><span class="sidebar-text">Our Client</span></a>
             </li> --}}
-            <li class="nav-item"><a href="siteinfo" class="nav-link"><span class="sidebar-icon"><i
+            <li class="nav-item"><a href="{{ route('siteinfo') }}" class="nav-link"><span class="sidebar-icon"><i
                             class="fa fa-info-circle"></i></span><span class="sidebar-text">Site Setting</span></a>
             </li>
 
