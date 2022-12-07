@@ -21,6 +21,7 @@ use App\Http\Controllers\ProductCategoryController;
 
 // end Dashboard
 Route::get('/', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 // slider start
 Route::get('/slider', [SliderController::class, 'index'])->middleware('auth')->name('slider');
@@ -72,12 +73,12 @@ Route::post('/contactus/update', [ContactusController::class, 'update'])->middle
 
 
 // about start
-Route::get('/page/setting', [AboutController::class, 'index'])->middleware('auth')->name('about');
-Route::post('/page/setting', [AboutController::class, 'store'])->middleware('auth')->name('about.insert');
-Route::get('/page/setting/delete/{id}', [AboutController::class, 'destroy'])->middleware('auth')->name('about.delete');
-Route::get('/page/setting/status/{id}', [AboutController::class, 'status'])->middleware('auth')->name('about.status');
-Route::get('/page/setting/update/{id}', [AboutController::class, 'edit'])->middleware('auth')->name('about.edit');
-Route::post('/page/setting/update', [AboutController::class, 'update'])->middleware('auth')->name('about.update');
+Route::get('/page_setting', [AboutController::class, 'index'])->middleware('auth')->name('about');
+Route::post('/page_setting', [AboutController::class, 'store'])->middleware('auth')->name('about.insert');
+Route::get('/page_setting/delete/{id}', [AboutController::class, 'destroy'])->middleware('auth')->name('about.delete');
+Route::get('/page_setting/status/{id}', [AboutController::class, 'status'])->middleware('auth')->name('about.status');
+Route::get('/page_setting/update/{id}', [AboutController::class, 'edit'])->middleware('auth')->name('about.edit');
+Route::post('/page_setting/update', [AboutController::class, 'update'])->middleware('auth')->name('about.update');
 // about end
 
 // Product start
@@ -111,8 +112,5 @@ Route::post('/career/update', [CareerController::class, 'update'])->middleware('
 Route::get('/career/apply', [CareerController::class, 'apply'])->middleware('auth')->name('career.apply');
 Route::get('/career/apply/status/{id}', [CareerController::class, 'apply_status'])->middleware('auth')->name('career.apply.status');
 Route::get('/career/apply/delete/{id}', [CareerController::class, 'apply_destroy'])->middleware('auth')->name('career.apply.delete');
-
 // Products end
-
-
 require __DIR__ . '/auth.php';

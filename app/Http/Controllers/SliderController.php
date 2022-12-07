@@ -1,19 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class SliderController extends Controller
 {
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public $page_name = "Slider";
     public function index()
     {
         $slider = DB::table('slider_tbl')->get();
-        return view('slider.index', ['data' => $slider, 'url' => $this->slider_url()]);
+        return view('slider.index', ['data' => $slider, 'url' => $this->slider_url(),'page'=>$this->page_name]);
     }
 
     /**
@@ -46,7 +44,7 @@ class SliderController extends Controller
         DB::table('slider_tbl')
             ->where('id', $id)
             ->update(['image_name' => $image_name]);
-        return redirect()->back()->with(['store'=>'']);
+        return redirect()->back()->with(['store' => '']);
     }
 
 
@@ -77,7 +75,7 @@ class SliderController extends Controller
     public function edit($id)
     {
         $data = DB::table('slider_tbl')->find($id);
-        return view('slider.update', ["data" => $data, 'url' => $this->slider_url()]);
+        return view('slider.update', ["data" => $data, 'url' => $this->slider_url(),'page'=>$this->page_name]);
     }
 
     /**
