@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-2">
                     <a href="{{ route('products.product.insert.view') }}" class="btn btn-block btn-gray-800 mb-3 btn-sm">Add
-                        New {{$page}}</a>
+                         {{$page}}</a>
 
                 </div>
             </div>
