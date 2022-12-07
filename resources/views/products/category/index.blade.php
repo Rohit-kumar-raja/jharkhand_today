@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-2">
                     <button type="button" class="btn btn-block btn-gray-800 mb-3 btn-sm" data-bs-toggle="modal"
-                        data-bs-target="#modal-default">Add new</button>
+                        data-bs-target="#modal-default">Add new {{ $page}}</button>
 
                 </div>
             </div>
