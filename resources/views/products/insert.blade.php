@@ -5,7 +5,7 @@
             <div class="modal-header">
                 <h2 class="h6 modal-title"><a class="btn btn-sm btn-secondary"
                         href="{{ route('products.product') }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i> All
-                        news</a> Add News </h2>
+                        {{$page}}</a>  </h2>
             </div>
             @if (session('store'))
                 <div class="alert alert-success">

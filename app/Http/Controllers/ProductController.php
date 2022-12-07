@@ -21,7 +21,7 @@ class ProductController extends Controller
     public  function insert()
     {
         $category = ProductCategory::all();
-        return view('products.insert', ['category' => $category]);
+        return view('products.insert', ['category' => $category,'page'=>$this->page_name]);
     }
 
     /**
@@ -104,7 +104,10 @@ class ProductController extends Controller
      */
     public function update(Request $request)
     {
-    
+        // $request->validate([
+        //     'title' => 'required',
+        //     'slug' => 'required|unique:products'
+        // ]);
         
         $id = $request->id;
         Product::where('id', $id)->update($request->except("_token", 'img', 'title', 'description'));

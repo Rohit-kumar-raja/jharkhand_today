@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-2">
                     <a href="{{ route('products.product.insert.view') }}" class="btn btn-block btn-gray-800 mb-3 btn-sm">Add
-                        new</a>
+                        new {{$page}}</a>
 
                 </div>
             </div>
@@ -65,7 +65,7 @@
                             <th>Title </th>
                             <th>youtube</th>
                             {{-- <th>view360</th> --}}
-                            <th>Description</th>
+                            <th>View</th>
                             <th>Action 1</th>
                             <th>Action 2</th>
                             <th>Status</th>
@@ -77,8 +77,8 @@
                             <th>category </th>
                             <th>Title </th>
                             <th>youtube</th>
-                            <th>view360</th>
-                            <th>Description</th>
+                            {{-- <th>view360</th> --}}
+                            <th>View</th>
                             <th>Action 1</th>
                             <th>Action 2</th>
                             <th>Status</th>
