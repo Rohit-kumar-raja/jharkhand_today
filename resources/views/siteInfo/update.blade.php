@@ -53,51 +53,51 @@
                         <div class="container">
                             <div class="row">
                                 @csrf
-                                <input name="id" type="hidden" value="{{ $data->id }}">
+                                <input name="id" type="hidden" value="{{ @$data->id }}">
 
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Address</b> </label>
-                                    <input required name="address" value="{{ $data->address }}" type="text" class="form-control" placeholder="Address">
+                                    <input required name="address" value="{{ @$data->address }}" type="text" class="form-control" placeholder="Address">
                                 </div>
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Phone No. 1</b> </label>
-                                    <input value="{{ $data->phone }}" required name="phone" type="text" class="form-control" placeholder="Phone no 1">
+                                    <input value="{{ @$data->phone }}" required name="phone" type="text" class="form-control" placeholder="Phone no 1">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Phone No. 2</b> </label>
-                                    <input value="{{ $data->phone2 }}" name="phone2" type="text" class="form-control" placeholder="Phone no 2">
+                                    <input value="{{ @$data->phone2 }}" name="phone2" type="text" class="form-control" placeholder="Phone no 2">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Email</b> </label>
-                                    <input value="{{ $data->email }}" required name="email" type="email" class="form-control" placeholder="Email">
+                                    <input value="{{ @$data->email }}" required name="email" type="email" class="form-control" placeholder="Email">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Facebook Link</b> </label>
-                                    <input value="{{ $data->facebook }}" name="facebook" type="text" class="form-control" placeholder="facebook">
+                                    <input value="{{ @$data->facebook }}" name="facebook" type="text" class="form-control" placeholder="facebook">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Instagram Link</b> </label>
-                                    <input value="{{ $data->instagram }}" name="instagram" type="text" class="form-control" placeholder="instagram">
+                                    <input value="{{ @$data->instagram }}" name="instagram" type="text" class="form-control" placeholder="instagram">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Whatsapp No.</b> </label>
-                                    <input value="{{ $data->whatsapp }}" name="whatsapp" type="text" class="form-control" placeholder="whatsapp">
+                                    <input value="{{ @$data->whatsapp }}" name="whatsapp" type="text" class="form-control" placeholder="whatsapp">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Youtube Link</b> </label>
-                                    <input value="{{ $data->youtube }}" name="youtube" type="text" class="form-control" placeholder="youtube">
+                                    <input value="{{ @$data->youtube }}" name="youtube" type="text" class="form-control" placeholder="youtube">
                                 </div>
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>Twitter Link</b> </label>
-                                    <input value="{{ $data->twitter }}" name="twitter" type="text" class="form-control" placeholder="twitter">
+                                    <input value="{{ @$data->twitter }}" name="twitter" type="text" class="form-control" placeholder="twitter">
                                 </div>
 
                                 <div class="form-group col-sm-4">
