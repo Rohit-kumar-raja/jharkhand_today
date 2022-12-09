@@ -49,6 +49,35 @@ class NewsController extends Controller
         return response()->json(['news' => $news]);
     }
 
+    function cateogry_news($news_category)
+    {
+        $news = DB::select('SELECT
+        DISTINCT products.id,
+        `category`,
+        `product_categories`.`name` as `category_name`,
+        product_images.name as images,
+        `slug`,
+        `log_title`,
+        `log_description`,
+        `youtube`,
+        `view360`,
+        products.`status`,
+        products.`created_at`,
+        products.`updated_at`
+    FROM
+        `products`  JOIN `product_categories` JOIN `product_images`
+    WHERE
+        `products`.`category`=`product_categories`.`id` && 
+        `products`.id=`product_images`.product_id &&
+        `products`.`status`=1 &&
+        `product_categories`.`name` ="'.$news_category.'"
+        order by `products`.id desc LIMIT 6
+       ');
+
+        return response()->json([$news_category => $news]);
+    }
+
+
     public function news_image($news_id)
     {
         $news_image = Product::where('product_id', $news_id)->where('status', 1)->get();

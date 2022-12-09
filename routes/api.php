@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('slider', [NewsController::class, 'slider']);
 Route::get('news_category', [NewsController::class, 'news_category']);
 Route::get('news', [NewsController::class, 'news']);
+Route::get('cateogry_news/{category}', [NewsController::class, 'cateogry_news']);
 Route::get('news_image', [NewsController::class, 'news_image']);
 // news data end
 
