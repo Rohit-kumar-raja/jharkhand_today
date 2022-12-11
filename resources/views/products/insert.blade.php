@@ -3,9 +3,9 @@
     @slot('body')
         <div class="modal-content mt-5  mb-5">
             <div class="modal-header">
-                <h2 class="h6 modal-title"><a class="btn btn-sm btn-secondary"
-                        href="{{ route('products.product') }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i> All
-                        {{$page}}</a>  </h2>
+                <h2 class="h6 modal-title"><a class="btn btn-sm btn-secondary" href="{{ route('products.product') }}"> <i
+                            class="fa fa-arrow-left" aria-hidden="true"></i> All
+                        {{ $page }}</a> </h2>
             </div>
             @if (session('store'))
                 <div class="alert alert-success">
@@ -64,6 +64,41 @@
                                 <label for="" class="text-dark"> <b> Full News </b> </label>
                                 <textarea required name="log_description" type="text" class="form-control ckeditor" placeholder="message"></textarea>
                             </div>
+
+
+
+                            <div class="form-group col-sm-4">
+                                <label for="" class="text-dark"> <b> District </b>
+                                </label>
+                                <select class="form-control" name="district">
+                                    <option value="">Select ..</option>
+                                    <option value="bokaro">Bokaro</option>
+                                    <option value="chatra">Chatra</option>
+                                    <option value="deoghar">Deoghar</option>
+                                    <option value="dhanbad">Dhanbad</option>
+                                    <option value="dumka">Dumka</option>
+                                    <option value="east-singhbhum">East Singhbhum</option>
+                                    <option value="garhwa">Garhwa</option>
+                                    <option value="giridh">Giridh</option>
+                                    <option value="godda">Godda</option>
+                                    <option value="gumla">Gumla</option>
+                                    <option value="hazaribag">Hazaribag</option>
+                                    <option value="jamtara">Jamtara</option>
+                                    <option value="khunti">Khunti</option>
+                                    <option value="koderma">Koderma</option>
+                                    <option value="latehar">Latehar</option>
+                                    <option value="lohardaga">Lohardaga</option>
+                                    <option value="pakur">Pakur</option>
+                                    <option value="palamau">Palamau</option>
+                                    <option value="ramgarh">Ramgarh</option>
+                                    <option value="ranchi">Ranchi</option>
+                                    <option value="sahibganj">Sahibganj</option>
+                                    <option value="seraikela-kharsawan">Seraikela Kharsawan</option>
+                                    <option value="simdega">Simdega</option>
+                                    <option value="west-singhbhum">West Singhbhum</option>
+                                </select>
+                            </div>
+
 
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b><i class="fab fa-youtube"></i> Youtube
@@ -227,8 +262,8 @@
         cursor: pointer;
         font-size: 15px;
     }
-    .fa-plus:before
-    {
+
+    .fa-plus:before {
         margin-left: -3px;
     }
 </style>

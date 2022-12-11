@@ -21,7 +21,7 @@ class ProductController extends Controller
     public  function insert()
     {
         $category = ProductCategory::all();
-        return view('products.insert', ['category' => $category,'page'=>$this->page_name]);
+        return view('products.insert', ['category' => $category, 'page' => $this->page_name]);
     }
 
     /**
@@ -42,7 +42,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-    
+
 
         $id =   Product::insertGetId($request->except('_token', 'img', 'title', 'description'));
         if ($request->file('img')) {
@@ -108,7 +108,7 @@ class ProductController extends Controller
         //     'title' => 'required',
         //     'slug' => 'required|unique:products'
         // ]);
-        
+
         $id = $request->id;
         Product::where('id', $id)->update($request->except("_token", 'img', 'title', 'description'));
         if ($request->file('img')) {
@@ -139,8 +139,14 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $image_name = Product::find($id);
+
         $image_name = $image_name->images;
         try {
+
+            $images = ProductImage::where('product_id', $id)->get();
+            foreach ($images as $img) {
+                $this->imageDelete($img->id);
+            }
             unlink(public_path('upload/Products/' . $image_name));
         } catch (Exception $e) {
         }

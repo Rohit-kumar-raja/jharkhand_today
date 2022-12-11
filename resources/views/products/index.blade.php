@@ -89,9 +89,9 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
 
-                                <td> {{ $services->categories->name }} </td>
-                                <td> {{ $services->log_title }} </td>
-                                <td> {{ $services->youtube }} </td>
+                                <td> {{ $services->categories->name ?? '' }} </td>
+                                <td> {{ $services->log_title ?? '' }} </td>
+                                <td> {{ $services->youtube ?? '' }} </td>
                                 {{-- <td> {{ $services->view360 }} </td> --}}
 
 

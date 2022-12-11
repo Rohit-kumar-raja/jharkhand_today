@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('log_title');
             $table->text('log_description');
+            $table->string('district');
             $table->string('youtube')->nullable();
             $table->string('view360')->nullable();
             $table->string('status');

@@ -66,7 +66,7 @@
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b>type</b> </label>
                                     <select required name="category" class="form-control">
-                                        <option value="{{ $data->id }}">{{ $data->categories->name }}</option>
+                                        <option value="{{ $data->id }}">{{ $data->categories->name ?? '' }}</option>
                                         @foreach ($category as $data1)
                                             <option value="{{ $data1->id }}">{{ $data1->name }}</option>
                                         @endforeach
@@ -91,6 +91,38 @@
                                 </div>
 
 
+                                <div class="form-group col-sm-4">
+                                    <label for="" class="text-dark"> <b> District </b>
+                                    </label>
+                                    <select class="form-control" name="district">
+                                        <option value="{{ $data->district}}">{{ $data->district}}</option>
+                                        <option value="bokaro">Bokaro</option>
+                                        <option value="chatra">Chatra</option>
+                                        <option value="deoghar">Deoghar</option>
+                                        <option value="dhanbad">Dhanbad</option>
+                                        <option value="dumka">Dumka</option>
+                                        <option value="east-singhbhum">East Singhbhum</option>
+                                        <option value="garhwa">Garhwa</option>
+                                        <option value="giridh">Giridh</option>
+                                        <option value="godda">Godda</option>
+                                        <option value="gumla">Gumla</option>
+                                        <option value="hazaribag">Hazaribag</option>
+                                        <option value="jamtara">Jamtara</option>
+                                        <option value="khunti">Khunti</option>
+                                        <option value="koderma">Koderma</option>
+                                        <option value="latehar">Latehar</option>
+                                        <option value="lohardaga">Lohardaga</option>
+                                        <option value="pakur">Pakur</option>
+                                        <option value="palamau">Palamau</option>
+                                        <option value="ramgarh">Ramgarh</option>
+                                        <option value="ranchi">Ranchi</option>
+                                        <option value="sahibganj">Sahibganj</option>
+                                        <option value="seraikela-kharsawan">Seraikela Kharsawan</option>
+                                        <option value="simdega">Simdega</option>
+                                        <option value="west-singhbhum">West Singhbhum</option>
+                                    </select>
+                                </div>
+    
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b><i class="fab fa-youtube"></i>
