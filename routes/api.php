@@ -25,12 +25,16 @@ Route::get('slider', [NewsController::class, 'slider']);
 Route::get('news_category', [NewsController::class, 'news_category']);
 Route::get('news', [NewsController::class, 'news']);
 Route::get('cateogry_news/{category}', [NewsController::class, 'cateogry_news']);
-Route::get('news_image', [NewsController::class, 'news_image']);
+Route::get('news_image/{product_id}', [NewsController::class, 'news_image']);
+Route::get('news_list/{category}', [NewsController::class, 'news_list']);
+Route::get('news_detail/{slug}', [NewsController::class, 'news_detail']);
+
 // news data end
 
 // Sete setting start
 Route::get('site/setting/{slug}', [SitesettingController::class, 'index']);
 Route::get('site/info', [SitesettingController::class, 'site_info']);
+
 
 
 // site setting end
