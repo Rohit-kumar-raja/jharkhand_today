@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\UploaderTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Media;
 class SliderController extends Controller
 {
+    use UploaderTrait;
     public $page_name = "Slider";
     public function index()
     {
@@ -33,7 +35,7 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $image_name = '';
-        $id =   DB::table('slider_tbl')->insertGetId($request->except('_token'));
+        $slider_tbl =   DB::table('slider_tbl')->create($request->except('_token'));
 
         if ($request->file('image_name')) {
             $image = $request->file('image_name');
@@ -41,12 +43,35 @@ class SliderController extends Controller
             $image_name = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $image_name);
         }
+        $this->uploadFile($request,$slider_tbl);
+
         DB::table('slider_tbl')
-            ->where('id', $id)
+            ->where('id', $slider_tbl->id)
             ->update(['image_name' => $image_name]);
         return redirect()->back()->with(['store' => '']);
     }
 
+    public function uploadFile($request, $item)
+    {
+        // return $item->id;
+        if ($request->has('file')) {
+            if (!empty($request->file)) {
+                $photo = $this->storeFileMultipart($request["file"], 'slider');
+                $input['file_name'] = $photo['name'];
+                $input['status'] = 1;
+                $input['file_type'] = 'image';
+                $media = Media::create([
+                    'table_type' => get_class($item),
+                    'table_id' => $item->id,
+                    'file_name' => $input['file_name'],
+                    'status' => $input['status'],
+                    'default' => null,
+                    'file_type' => $input['file_type']
+                ]);
+            }
+        }
+        // return true;
+    }
 
     /**
      * Display the specified resource.
