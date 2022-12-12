@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Slider extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     public function media()
     {
         return $this->morphOne('App\Models\Media', 'table')->where('deleted_at', null)->orderBy('id', 'DESC');
