@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class Slider extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-    public function categories(){
-        return $this->belongsTo(Category::class,'category');
+    public function media()
+    {
+        return $this->morphOne('App\Models\Media', 'table')->where('deleted_at', null)->orderBy('id', 'DESC');
     }
-
 }

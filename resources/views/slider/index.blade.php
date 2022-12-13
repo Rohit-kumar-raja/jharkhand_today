@@ -92,7 +92,12 @@
 
                                 <td> {{ $slider->title }} </td>
                                 <td> {{ $slider->sub_title }} </td>
-                                <td><img width="100" src="{{ asset('upload/slider/' . $slider->image_name) }}"></td>
+                                <td>
+                                    @if(!empty($slider->media))
+                                    <img width="100" src="{{$slider->media->getUrl()}}">
+                                    @endif
+                                </td>
+                                <!-- <td><img width="100" src="{{ asset('upload/slider/' . $slider->image_name) }}"></td> -->
 
                                 <td> {{ $slider->virtual_image_name }} </td>
                                 <td><a href="{{ route('slider') }}/update/{{ $slider->id }}"

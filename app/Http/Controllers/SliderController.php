@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\UploaderTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Media;
+use App\Models\Slider;
 class SliderController extends Controller
 {
+    use UploaderTrait;
     public $page_name = "Slider";
     public function index()
     {
-        $slider = DB::table('slider_tbl')->get();
+        $slider = Slider::get();
         return view('slider.index', ['data' => $slider, 'url' => $this->slider_url(),'page'=>$this->page_name]);
     }
 
@@ -33,20 +36,43 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $image_name = '';
-        $id =   DB::table('slider_tbl')->insertGetId($request->except('_token'));
+        $slider_tbl =   Slider::create($request->except('_token'));
+    // return $request->all();
+        // if ($request->file('image_name')) {
+        //     $image = $request->file('image_name');
+        //     $destinationPath = 'upload/slider/';
+        //     $image_name = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        //     $image->move($destinationPath, $image_name);
+        // }
+        $this->uploadFile($request,$slider_tbl);
 
-        if ($request->file('image_name')) {
-            $image = $request->file('image_name');
-            $destinationPath = 'upload/slider/';
-            $image_name = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $image_name);
-        }
         DB::table('slider_tbl')
-            ->where('id', $id)
+            ->where('id', $slider_tbl->id)
             ->update(['image_name' => $image_name]);
         return redirect()->back()->with(['store' => '']);
     }
 
+    public function uploadFile($request, $item)
+    {
+        // return $item->id;
+        if ($request->has('image_name')) {
+            if (!empty($request->image_name)) {
+                $photo = $this->storeFileMultipart($request->image_name, 'slider');
+                $input['file_name'] = $photo['name'];
+                $input['status'] = 1;
+                $input['file_type'] = 'image';
+                $media = Media::create([
+                    'table_type' => get_class($item),
+                    'table_id' => $item->id,
+                    'file_name' => $input['file_name'],
+                    'status' => $input['status'],
+                    'default' => null,
+                    'file_type' => $input['file_type']
+                ]);
+            }
+        }
+        // return true;
+    }
 
     /**
      * Display the specified resource.
@@ -88,12 +114,15 @@ class SliderController extends Controller
     public function update(Request $request)
     {
         $id = $request->id;
+        $slider = Slider::find($request->id);
         if ($request->file('image_name')) {
-            $image_name = DB::table('slider_tbl')->find($id);
-            $image_name = $image_name->image_name;
-            $image = $request->file('image_name');
-            $destinationPath = 'upload/slider/';
-            echo  $image->move($destinationPath, $image_name);
+            $this->deleteFile($slider->media->file_name);
+            $this->uploadFile($request,$slider);
+            // $image_name = DB::table('slider_tbl')->find($id);
+            // $image_name = $image_name->image_name;
+            // $image = $request->file('image_name');
+            // $destinationPath = 'upload/slider/';
+            // echo  $image->move($destinationPath, $image_name);
         }
         $result = DB::table('slider_tbl')
             ->where('id', $request->id)
