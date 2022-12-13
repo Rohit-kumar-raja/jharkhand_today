@@ -33,6 +33,8 @@ Route::get('news_detail/{slug}', [NewsController::class, 'news_detail']);
 
 // Sete setting start
 Route::get('site/setting/{slug}', [SitesettingController::class, 'index']);
+Route::get('site/setting/', [SitesettingController::class, 'site_setting']);
+
 Route::get('site/info', [SitesettingController::class, 'site_info']);
 
 

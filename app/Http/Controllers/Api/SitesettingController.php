@@ -11,7 +11,11 @@ class SitesettingController extends Controller
 {
     function index($slug)
     {
-        $site_setting = About::where('slug', $slug)->get();
+        $site_setting = About::where('slug', $slug)->first();
+        return response()->json(['site_setting' => $site_setting]);
+    }
+    function site_setting(){
+        $site_setting = About::get();
         return response()->json(['site_setting' => $site_setting]);
     }
 
