@@ -57,11 +57,11 @@
 
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>Address</b> </label>
+                                    <label for="" class="text-dark"> <b>Address</b><span style="color:red;">*</span> </label>
                                     <input required name="address" value="{{ @$data->address }}" type="text" class="form-control" placeholder="Address">
                                 </div>
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>Phone No. 1</b> </label>
+                                    <label for="" class="text-dark"> <b>Phone No. 1</b><span style="color:red;">*</span> </label>
                                     <input value="{{ @$data->phone }}" required name="phone" type="text" class="form-control" placeholder="Phone no 1">
                                 </div>
 
@@ -71,7 +71,7 @@
                                 </div>
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>Email</b> </label>
+                                    <label for="" class="text-dark"> <b>Email</b><span style="color:red;">*</span> </label>
                                     <input value="{{ @$data->email }}" required name="email" type="email" class="form-control" placeholder="Email">
                                 </div>
 
@@ -101,7 +101,7 @@
                                 </div>
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>status</b> </label>
+                                    <label for="" class="text-dark"> <b>status</b><span style="color:red;">*</span> </label>
                                     <select required name="status" type="text" class="form-control"
                                         placeholder="Title">
                                         <option value="1">Active</option>

@@ -64,7 +64,7 @@
 
                                 <input type="hidden" name="created_at" value={{ date('Y-m-d') }}>
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>type</b> </label>
+                                    <label for="" class="text-dark"> <b>Select Category</b><span style="color:red;">*</span> </label>
                                     <select required name="category" class="form-control">
                                         <option value="{{ $data->id }}">{{ $data->categories->name ?? '' }}</option>
                                         @foreach ($category as $data1)
@@ -73,26 +73,26 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>Full Title</b> </label>
+                                    <label for="" class="text-dark"> <b>Full Title</b><span style="color:red;">*</span> </label>
                                     <input required onkeyup="url_data(this.value)" onclick="url_data(this.value)" value="{{ $data->log_title }}"
                                         name="log_title" type="text" class="form-control" placeholder="name">
                                 </div>
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b> url </b> </label>
+                                    <label for="" class="text-dark"> <b> url </b><span style="color:red;">*</span> </label>
                                     <input value="{{ $data->slug }}" required id="url" name="slug"
                                         type="text" class="form-control" placeholder="url">
                                 </div>
 
 
                                 <div class="form-group col-sm-12">
-                                    <label for="" class="text-dark"> <b> Full News </b> </label>
+                                    <label for="" class="text-dark"> <b> Full News</b><span style="color:red;">*</span> </label>
                                     <textarea required name="log_description" type="text" class="form-control ckeditor" placeholder="message">{{ $data->log_description }}</textarea>
                                 </div>
 
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b> District </b>
+                                    <label for="" class="text-dark"> <b> District</b><span style="color:red;">*</span>
                                     </label>
                                     <select class="form-control" name="district">
                                         <option value="{{ $data->district}}">{{ $data->district}}</option>
@@ -122,7 +122,7 @@
                                         <option value="west-singhbhum">West Singhbhum</option>
                                     </select>
                                 </div>
-    
+
 
                                 <div class="form-group col-sm-4">
                                     <label for="" class="text-dark"> <b><i class="fab fa-youtube"></i>
@@ -143,7 +143,7 @@
 
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>status</b> </label>
+                                    <label for="" class="text-dark"> <b>status</b><span style="color:red;">*</span> </label>
                                     <select required name="status" type="text" class="form-control" placeholder="Title">
                                         <option value="1">Active</option>
                                         <option value="0">Deactive</option>

@@ -30,14 +30,14 @@
                                 <input name="id" type="hidden" value="{{ $data->id }}">
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>name</b> </label>
+                                    <label for="" class="text-dark"> <b>name</b><span style="color:red;">*</span> </label>
                                     <input required name="name" value="{{ $data->name }}" type="text"
                                         class="form-control" placeholder="name">
                                 </div>
 
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>image</b> </label>
+                                    <label for="" class="text-dark"> <b>image</b><span style="color:red;">*</span> </label>
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <input name="images" accept="image/*" type="file" class="form-control"
@@ -54,14 +54,14 @@
 
 
                                 <div class="form-group col-sm-4">
-                                    <label for="" class="text-dark"> <b>status</b> </label>
+                                    <label for="" class="text-dark"> <b>status</b><span style="color:red;">*</span> </label>
                                     <select required name="status" type="text" class="form-control" placeholder="Title">
                                         <option value="1">Active</option>
                                         <option value="0">Deactive</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-sm-12">
-                                    <label for="" class="text-dark"> <b>Description</b> </label>
+                                    <label for="" class="text-dark"> <b>Description</b><span style="color:red;">*</span> </label>
                                     <textarea name="massage" id="massage" class="form-control" placeholder="message">{{ $data->massage }}</textarea>
                                 </div>
                             </div>

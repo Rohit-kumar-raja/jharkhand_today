@@ -39,7 +39,7 @@
                             @csrf
                             <input type="hidden" name="created_at" value={{ date('Y-m-d') }}>
                             <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b> Select Category </b> </label>
+                                <label for="" class="text-dark"> <b> Select Category</b><span style="color:red;">*</span> </label>
                                 <select required name="category" class="form-control">
                                     <option selected disabled> - Select - </option>
                                     @foreach ($category as $data)
@@ -48,27 +48,27 @@
                                 </select>
                             </div>
                             <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>Full Title</b> </label>
+                                <label for="" class="text-dark"> <b>Full Title</b><span style="color:red;">*</span> </label>
                                 <input required onkeyup="url_data(this.value)" onkeyup="url_data(this.value)"
                                     name="log_title" type="text" class="form-control" placeholder="name">
                             </div>
 
                             <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b> url </b> </label>
+                                <label for="" class="text-dark"> <b> url</b><span style="color:red;">*</span> </label>
                                 <input required id="url" name="slug" type="text" class="form-control"
                                     placeholder="url">
                             </div>
 
 
                             <div class="form-group col-sm-12">
-                                <label for="" class="text-dark"> <b> Full News </b> </label>
+                                <label for="" class="text-dark"> <b> Full News</b><span style="color:red;">*</span> </label>
                                 <textarea required name="log_description" type="text" class="form-control ckeditor" placeholder="message"></textarea>
                             </div>
 
 
 
                             <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b> District </b>
+                                <label for="" class="text-dark"> <b> District</b><span style="color:red;">*</span>
                                 </label>
                                 <select class="form-control" name="district">
                                     <option value="">Select ..</option>
@@ -114,7 +114,7 @@
                             </div> --}}
 
                             <div class="form-group col-sm-4">
-                                <label for="" class="text-dark"> <b>status</b> </label>
+                                <label for="" class="text-dark"> <b>status</b><span style="color:red;">*</span> </label>
                                 <select required name="status" type="text" class="form-control" placeholder="Title">
                                     <option value="1">Active</option>
                                     <option value="0">Deactive</option>
