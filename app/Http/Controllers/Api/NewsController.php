@@ -77,7 +77,7 @@ class NewsController extends Controller
         order by `products`.id desc LIMIT 5
        ');
 
-        return response()->json([$news_category => $news]);
+        return response()->json(['c' => $news]);
     }
 
     function news_list($news_category)
