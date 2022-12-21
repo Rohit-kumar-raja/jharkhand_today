@@ -62,7 +62,7 @@
 
                             <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b> Full News</b><span style="color:red;">*</span> </label>
-                                <textarea required name="log_description" type="text" class="form-control ckeditor" placeholder="message"></textarea>
+                                <textarea required name="log_description" type="text" class="form-control text-area-height" placeholder="Type News Here..."></textarea>
                             </div>
 
 
@@ -146,6 +146,11 @@
     @endslot
 </x-layout>
 
+<script language="javascript" type="text/javascript">
+        pramukhIME.setLanguage("hindi", "pramukhindic");
+        pramukhIME.enable();
+</script>
+
 <script>
     function url_data(data) {
         document.getElementById('url').value = data.replaceAll(' ', '+')
@@ -213,6 +218,9 @@
 <style>
     body {
         background-color: #f5f5f5;
+    }
+    .text-area-height{
+        height: 250px;
     }
 
     .imagePreview {

@@ -23,7 +23,10 @@
     <link type="text/css" href="{{ asset('vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('vendor/notyf/notyf.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <!-- Scripts -->
+    <script type="text/javascript" src="{{ url('assets/js/pramukhime.js')}}"></script>
+
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
