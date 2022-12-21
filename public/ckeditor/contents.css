@@ -206,3 +206,10 @@ a > img {
 	max-height: 1080px;
 	margin:0 auto;
 }
+@font-face {
+    font-family: 'Kruti';
+    src: url('lang/Kruti/k010.eot');
+    src: local("Hindi"), url("lang/Kruti/k010.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    }

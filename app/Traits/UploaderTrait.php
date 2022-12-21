@@ -58,7 +58,8 @@ trait UploaderTrait
         if (!$disk) { // disk
             $disk = 'public';
         }
-        $filepath =  $file->storeAs($folder, ['disk' => $disk]);
+        $name = !is_null($file) ? $file : str_random(25);
+        $filepath =  $file->storeAs($folder, $name . "." . $file->getClientOriginalExtension(), ['disk' => $disk]);
         $fileName = str_replace($folder . '/', "", $filepath);
 
         // resize image
