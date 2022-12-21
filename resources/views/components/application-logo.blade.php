@@ -1,1 +1,1 @@
-<img width="200px" src="{{asset('assets/img/logo.png')}}" alt="">
+<img width="100px" src="{{asset('assets/img/jtn_logo.png')}}" alt="">
