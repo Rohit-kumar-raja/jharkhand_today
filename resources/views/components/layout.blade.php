@@ -65,14 +65,14 @@
 
 </html>
 <script>
-    var all_th = document.getElementsByTagName('th')
-    console.log(all_th);
-    for (i = 0; i <= all_th.length; i++) {
-        if (all_th[i].textContent == 'Action 1') {
-            document.getElementsByTagName('th')[i].textContent = 'Edit'
-        }
-        if (all_th[i].textContent == 'Action 2') {
-            document.getElementsByTagName('th')[i].textContent = 'Delete'
-        }
-    }
+    // var all_th = document.getElementsByTagName('th')
+    // console.log(all_th);
+    // for (i = 0; i <= all_th.length; i++) {
+    //     if (all_th[i].textContent == 'Action 1') {
+    //         document.getElementsByTagName('th')[i].textContent = 'Edit'
+    //     }
+    //     if (all_th[i].textContent == 'Action 2') {
+    //         document.getElementsByTagName('th')[i].textContent = 'Delete'
+    //     }
+    // }
 </script>
