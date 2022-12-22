@@ -22,6 +22,7 @@ class SliderCollection extends JsonResource
             'title' => $this->title,
             'sub_title' => $this->sub_title,
             'description' => $this->description,
+            'virtual_image_name' => $this->virtual_image_name,
             'is_deleted' => $this->is_deleted,
             
             'media'           => !empty($this->media) ?  $this->media->getUrl() : "",
