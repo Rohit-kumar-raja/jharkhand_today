@@ -8,13 +8,14 @@ use App\Models\ProductCategory;
 use App\Models\ProductImage;
 use Illuminate\Support\Facades\DB;
 use App\Models\Slider;
+use App\Http\Resources\Api\Slider\SliderCollection;
 class NewsController extends Controller
 {
     public function slider()
     {
         // $slider = DB::table('slider_tbl')->where('is_deleted', 1)->get();
-        $slider = Slider::with('media')->where('is_deleted', 1)->get();
-        return response()->json(['slider' => $slider]);
+        $slider = Slider::where('is_deleted', 1)->get();
+        return response()->json(['slider' =>SliderCollection::collection($slider)]);
     }
 
     public function news_category()

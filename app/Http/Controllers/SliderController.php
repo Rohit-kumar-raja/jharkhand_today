@@ -116,7 +116,10 @@ class SliderController extends Controller
         $id = $request->id;
         $slider = Slider::find($request->id);
         if ($request->file('image_name')) {
-            $this->deleteFile($slider->media->file_name);
+            if(!empty($slider->media))
+            {
+                $this->deleteFile($slider->media->file_name);
+            }
             $this->uploadFile($request,$slider);
             // $image_name = DB::table('slider_tbl')->find($id);
             // $image_name = $image_name->image_name;
