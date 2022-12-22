@@ -4,8 +4,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="h6 modal-title"> Add {{$page}} </h2><button type="button" class="btn-close"
-                    data-bs-dismiss="modal" aria-label="Close"></button>
+                <h2 class="h6 modal-title"> Add {{$page}} </h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('products.category.insert') }}" method="POST" enctype="multipart/form-data">
@@ -20,15 +19,13 @@
 
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>images</b><span style="color:red;">*</span> </label>
-                                <input accept="image/*" required name="images" type="file" class="form-control"
-                                    placeholder="images">
+                                <input accept="image/*" required name="images" type="file" class="form-control" placeholder="images">
                             </div>
 
 
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>status</b><span style="color:red;">*</span> </label>
-                                <select required name="status" type="text" class="form-control"
-                                    placeholder="Title">
+                                <select required name="status" type="text" class="form-control" placeholder="Title">
                                     <option value="1">Active</option>
                                     <option value="0">Deactive</option>
                                 </select>
@@ -49,3 +46,8 @@
         </div>
     </div>
 </div>
+
+<script language="javascript" type="text/javascript">
+    pramukhIME.addLanguage(PramukhIndic, "hindi");
+    pramukhIME.enable();
+</script>

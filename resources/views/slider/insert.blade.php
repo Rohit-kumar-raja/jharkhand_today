@@ -4,8 +4,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="h6 modal-title"> Add New {{ $page }} </h2><button type="button" class="btn-close"
-                    data-bs-dismiss="modal" aria-label="Close"></button>
+                <h2 class="h6 modal-title"> Add New {{ $page }} </h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="{{ route('slider.insert') }}" method="POST" enctype="multipart/form-data">
@@ -18,23 +17,19 @@
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>sub title</b> </label>
-                                <input required name="sub_title" type="text" value="" class="form-control"
-                                    placeholder="sub title">
+                                <input required name="sub_title" type="text" value="" class="form-control" placeholder="sub title">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>image name</b> </label>
-                                <input required name="image_name" type="file" class="form-control"
-                                    placeholder="image_name">
+                                <input required name="image_name" type="file" class="form-control" placeholder="image_name">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>Read more Link</b> </label>
-                                <input required name="virtual_image_name" type="text" class="form-control"
-                                    placeholder="Image Link">
+                                <input required name="virtual_image_name" type="text" class="form-control" placeholder="Image Link">
                             </div>
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>status</b> </label>
-                                <select required name="is_deleted" type="text" class="form-control"
-                                    placeholder="Title">
+                                <select required name="is_deleted" type="text" class="form-control" placeholder="Title">
                                     <option value="1">Active</option>
                                     <option value="0">Deactive</option>
                                 </select>
@@ -55,3 +50,8 @@
         </div>
     </div>
 </div>
+
+<script language="javascript" type="text/javascript">
+    pramukhIME.addLanguage(PramukhIndic, "hindi");
+    pramukhIME.enable();
+</script>
