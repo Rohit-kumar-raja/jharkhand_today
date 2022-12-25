@@ -1,8 +1,3 @@
-<style>
-    .text-area-height {
-        height: 250px;
-    }
-</style>
 
 <x-layout>
     @slot('body')
@@ -90,7 +85,7 @@
 
                             <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b> Full News</b><span style="color:red;">*</span> </label>
-                                <textarea required name="log_description" type="text" class="form-control" placeholder="message">{{ $data->log_description }}</textarea>
+                                <textarea required name="log_description" type="text" class="form-control ckeditor" placeholder="message">{{ $data->log_description }}</textarea>
                             </div>
 
 
@@ -192,11 +187,6 @@
     </div>
     @endslot
 </x-layout>
-
-<script language="javascript" type="text/javascript">
-    pramukhIME.addLanguage(PramukhIndic, "hindi");
-    pramukhIME.enable();
-</script>
 
 <script>
     function url_data(data) {

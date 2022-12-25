@@ -24,9 +24,6 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <!-- Scripts -->
-    <script type="text/javascript" src="{{ url('assets/js/pramukhime.js')}}"></script>
-    <script type="text/javascript" src="{{ url('assets/js/pramukhindic.js')}}"></script>
-
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
 </head>
 

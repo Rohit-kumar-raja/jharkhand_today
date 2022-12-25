@@ -50,8 +50,3 @@
         </div>
     </div>
 </div>
-
-<script language="javascript" type="text/javascript">
-    pramukhIME.addLanguage(PramukhIndic, "hindi");
-    pramukhIME.enable();
-</script>
