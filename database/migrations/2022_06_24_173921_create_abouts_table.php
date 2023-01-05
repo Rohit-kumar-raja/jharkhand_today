@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('images');
-            $table->string('massage');
+            $table->longText('massage');
             $table->string('status');
             $table->timestamps();
         });

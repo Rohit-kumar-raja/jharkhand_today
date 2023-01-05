@@ -92,7 +92,6 @@ class AboutController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:abouts'
         ]);
         $id = $request->id;
         About::where('id', $id)->update($request->except("_token", 'images'));
