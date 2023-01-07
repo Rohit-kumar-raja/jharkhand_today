@@ -9,13 +9,14 @@ use App\Models\ProductImage;
 use Illuminate\Support\Facades\DB;
 use App\Models\Slider;
 use App\Http\Resources\Api\Slider\SliderCollection;
+
 class NewsController extends Controller
 {
     public function slider()
     {
         // $slider = DB::table('slider_tbl')->where('is_deleted', 1)->get();
         $slider = Slider::where('is_deleted', 1)->get();
-        return response()->json(['slider' =>SliderCollection::collection($slider)]);
+        return response()->json(['slider' => SliderCollection::collection($slider)]);
     }
 
     public function news_category()
@@ -39,7 +40,7 @@ class NewsController extends Controller
         `view360`,
         `district`,
         products.`status`,
-        products.`created_at`,
+         DATE_FORMAT(products.`created_at`, "%d-%M-%Y"),
         products.`updated_at`
     FROM
         `products`  JOIN `product_categories` JOIN `product_images`
@@ -68,7 +69,7 @@ class NewsController extends Controller
         `view360`,
         `district`,
         products.`status`,
-        products.`created_at`,
+         DATE_FORMAT(products.`created_at`, "%d-%M-%Y"),
         products.`updated_at`
     FROM
         `products`  JOIN `product_categories` JOIN `product_images`
@@ -97,7 +98,7 @@ class NewsController extends Controller
         `view360`,
         `district`,
         products.`status`,
-        products.`created_at`,
+         DATE_FORMAT(products.`created_at`, "%d-%M-%Y"),
         products.`updated_at`
     FROM
         `products`  JOIN `product_categories` JOIN `product_images`
@@ -126,7 +127,7 @@ class NewsController extends Controller
         `view360`,
         `district`,
         products.`status`,
-        products.`created_at`,
+         DATE_FORMAT(products.`created_at`, "%d-%M-%Y"),
         products.`updated_at`
     FROM
         `products`  JOIN `product_categories` JOIN `product_images`
