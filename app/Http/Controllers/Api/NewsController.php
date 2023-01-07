@@ -40,7 +40,7 @@ class NewsController extends Controller
         `view360`,
         `district`,
         products.`status`,
-         DATE_FORMAT(products.`created_at`, "%d-%M-%Y"),
+         DATE_FORMAT(products.`created_at`, "%d-%M-%Y") as `created_at`,
         products.`updated_at`
     FROM
         `products`  JOIN `product_categories` JOIN `product_images`
@@ -69,7 +69,7 @@ class NewsController extends Controller
         `view360`,
         `district`,
         products.`status`,
-         DATE_FORMAT(products.`created_at`, "%d-%M-%Y"),
+         DATE_FORMAT(products.`created_at`, "%d-%M-%Y") as `created_at`,
         products.`updated_at`
     FROM
         `products`  JOIN `product_categories` JOIN `product_images`
@@ -98,7 +98,7 @@ class NewsController extends Controller
         `view360`,
         `district`,
         products.`status`,
-         DATE_FORMAT(products.`created_at`, "%d-%M-%Y"),
+         DATE_FORMAT(products.`created_at`, "%d-%M-%Y") as `created_at`,
         products.`updated_at`
     FROM
         `products`  JOIN `product_categories` JOIN `product_images`
@@ -127,7 +127,7 @@ class NewsController extends Controller
         `view360`,
         `district`,
         products.`status`,
-         DATE_FORMAT(products.`created_at`, "%d-%M-%Y"),
+         DATE_FORMAT(products.`created_at`, "%d-%M-%Y") as `created_at` ,
         products.`updated_at`
     FROM
         `products`  JOIN `product_categories` JOIN `product_images`
