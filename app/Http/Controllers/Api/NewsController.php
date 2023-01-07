@@ -48,7 +48,7 @@ class NewsController extends Controller
         `products`.id=`product_images`.product_id &&
         `products`.status=1
       
-        order by `products`.id desc
+        order by `products`.id desc LIMIT 10
        ');
 
         return response()->json(['news' => $news]);
