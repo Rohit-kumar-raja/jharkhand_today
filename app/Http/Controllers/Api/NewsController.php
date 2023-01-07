@@ -47,6 +47,7 @@ class NewsController extends Controller
         `products`.`category`=`product_categories`.`id` && 
         `products`.id=`product_images`.product_id &&
         `products`.status=1
+        LIMIT 10
         order by `products`.id desc
        ');
 
