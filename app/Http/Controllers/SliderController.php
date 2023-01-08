@@ -141,11 +141,11 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        $image_name = DB::table('slider_tbl')->find($id);
-        $image_name = $image_name->image_name;
-        if (file_exists(public_path('upload/slider/' . $image_name))) {
-            unlink(public_path('upload/slider/' . $image_name));
-        }
+        // $image_name = DB::table('slider_tbl')->find($id);
+        // $image_name = $image_name->image_name;
+        // if (file_exists(public_path('upload/slider/' . $image_name))) {
+        //     unlink(public_path('upload/slider/' . $image_name));
+        // }
         DB::table('slider_tbl')->delete($id);
         return redirect()->back();
     }
