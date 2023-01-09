@@ -17,6 +17,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SiteInfoController;
 use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\UserController;
 
 
 // end Dashboard
@@ -112,5 +113,11 @@ Route::post('/career/update', [CareerController::class, 'update'])->middleware('
 Route::get('/career/apply', [CareerController::class, 'apply'])->middleware('auth')->name('career.apply');
 Route::get('/career/apply/status/{id}', [CareerController::class, 'apply_status'])->middleware('auth')->name('career.apply.status');
 Route::get('/career/apply/delete/{id}', [CareerController::class, 'apply_destroy'])->middleware('auth')->name('career.apply.delete');
+
+//Users
+Route::resource('/users', UserController::class)->middleware('auth');
+Route::get('/get-users', [UserController::class, 'getUsers'])->middleware('auth');
+
+
 // Products end
 require __DIR__ . '/auth.php';
