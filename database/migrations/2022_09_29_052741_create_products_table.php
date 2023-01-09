@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('district');
             $table->string('youtube')->nullable();
             $table->string('view360')->nullable();
+            $table->bigInteger('created_by_user_id');
             $table->string('status');
             $table->timestamps();
         });
