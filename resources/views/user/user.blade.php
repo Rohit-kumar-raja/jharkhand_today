@@ -164,7 +164,6 @@
                         `);
                         $('#userModal').modal('hide');
                         getUsers();
-                        console.log(response);
                         $('#userForm').trigger("reset");
                     }
                 });
@@ -218,7 +217,6 @@
                         `);
                         $('#userModal').modal('hide');
                         getUsers();
-                        console.log(response);
                         $('#userForm').trigger("reset");
                     }
                 });
@@ -230,14 +228,13 @@
                     url: "{{ url('get-users') }}",
                     dataType: "json",
                     success: function(response) {
-                        console.log(response);
                         let toAppend = "";
                         $.each(response.data, function(k, v) {
                             toAppend +=
                                 `
                                 <tr>
                                     <td>
-                                        1
+                                        ${k+1}
                                     </td>
                                     <td>
                                         ${v.name}
@@ -245,20 +242,6 @@
                                     <td>
                                         ${v.role_name}
                                     </td>
-                                    <div class="modal fade" id="modal-default${v.id}" tabindex="-1" aria-labelledby="modal-default" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h2 class="h6 modal-title"> Message</h2><button type="button" class="btn-close"
-                                                        data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                ${v.id}
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
                                     <td><a href="#" class="btn btn-warning btn-sm" onclick='editUser(${v.id})'><i class="far fa-edit"></i></a>
                                     </td>
                                     <td><a href="#" class="btn btn-danger btn-sm" onclick='destroyUser(${v.id})'><i class="fas fa-trash-alt"></i></a>
@@ -286,13 +269,11 @@
                                 <div class="alert alert-danger">
                                     ${response.message}
                                 </div>
-                        `);
-                            console.log(response);
+                            `);
                             getUsers();
                         }
                     });
                 }
-
             }
         </script>
     @endslot

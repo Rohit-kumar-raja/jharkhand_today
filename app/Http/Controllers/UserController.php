@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\User\UserCollection;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Validator;
@@ -44,7 +43,7 @@ class UserController extends Controller
         $usr->name = $request->name;
         $usr->role_name = $request->role_name;
         $usr->email = $request->email;
-        $usr->password = $request->password;
+        $usr->password = Hash::make($request->password);
         $usr->save();
 
         return response()->json(["status" => true, "message" => $msg]);
@@ -73,7 +72,7 @@ class UserController extends Controller
         $usr->name = $request->name;
         $usr->role_name = $request->role_name;
         $usr->email = $request->email;
-        $usr->password = $request->password;
+        $usr->password = Hash::make($request->password);
         $usr->save();
         $msg = "User Updated Successfully";
         return response()->json(["status" => true, "message" => $msg]);
@@ -86,7 +85,6 @@ class UserController extends Controller
             $message = "User not Found";
             return response()->json(['message' => $message, 'status' => false]);
         }
-        // $usr->blogs()->delete();
         $usr->delete();
         $message = 'User Deleted Successfully';
         return response()->json(['message' => $message, 'status' => true]);
