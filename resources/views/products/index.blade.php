@@ -104,14 +104,25 @@
                                 <td><a  @if($services->created_by_user_id!=Auth::user()->id &&  Auth::user()->role_name!="admin") style="pointer-events: none;" @endif  href="{{ route('products.product.delete', $services->id) }}"
                                         class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                 </td>
-                                <td><a  @if($services->created_by_user_id!=Auth::user()->id &&  Auth::user()->role_name!="admin") style="pointer-events: none;" @endif  href="{{ route('products.product.status', $services->id) }}"
+                                <td>
+                                    @if (Auth::user()->role_name == 'admin')
+                                    <a href="{{ route('products.product.status', $services->id) }}"
                                         class="btn @if ($services->status == 1) btn-success @endif btn-secondary  btn-sm">
                                         @if ($services->status == 1)
-                                            Active
+                                        Approved
                                         @else
-                                            Deactive
+                                        Approve
                                         @endif
                                     </a>
+                                    @else
+                                    <span class="btn @if ($services->status == 1) btn-success @endif btn-secondary  btn-sm">
+                                        @if ($services->status == 1)
+                                            Approved
+                                        @else
+                                            Pending for Approval
+                                        @endif
+                                    </span>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

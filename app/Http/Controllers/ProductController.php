@@ -26,9 +26,9 @@ class ProductController extends Controller
     public function singleCategoryNews(Request $request)
     {
         $category = ProductCategory::where('name',$request->category)->first();
-        
+
         $products = Product::where('category',$category->id)->get();
-        
+
         return view('products.index', ['data' => $products, 'page' => $this->page_name]);
     }
     public  function insert()
@@ -88,10 +88,10 @@ class ProductController extends Controller
         $status = Product::find($id);
         if ($status->status == 1) {
             Product::where('id', $id)->update(['status' => '0']);
-            return redirect()->back()->with('status', 'Status Successfully Deactivated');
+            return redirect()->back()->with('status', 'News Disapproved Successfully');
         } else {
             Product::where('id', $id)->update(['status' => '1']);
-            return redirect()->back()->with('status1', 'Status Successfully Activated');
+            return redirect()->back()->with('status1', 'News Approved Successfully');
         }
     }
 

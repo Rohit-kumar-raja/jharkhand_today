@@ -114,11 +114,12 @@
                             </div> --}}
 
                         <div class="form-group col-sm-4">
-                            <label for="" class="text-dark"> <b>status</b><span style="color:red;">*</span> </label>
+                            <input type="hidden" name="status" value="0">
+                            {{-- <label for="" class="text-dark"> <b>status</b><span style="color:red;">*</span> </label>
                             <select required name="status" type="text" class="form-control" placeholder="Title">
                                 <option value="1">Active</option>
                                 <option value="0">Deactive</option>
-                            </select>
+                            </select> --}}
                         </div>
 
                         <div class="row">
