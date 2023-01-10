@@ -37,6 +37,7 @@
                 <div class="container">
                     <div class="row">
                         @csrf
+                        <input type="hidden" name="created_by_user_id" value="{{ Auth::id() }}">
                         <input type="hidden" name="created_at" value={{ date('Y-m-d') }}>
                         <div class="form-group col-sm-4">
                             <label for="" class="text-dark"> <b> Select Category</b><span style="color:red;">*</span> </label>

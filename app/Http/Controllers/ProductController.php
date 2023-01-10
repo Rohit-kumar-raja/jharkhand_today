@@ -8,13 +8,18 @@ use App\Models\ProductCategory;
 use App\Models\ProductFeature;
 use App\Models\ProductImage;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public $page_name = 'News';
     public function index()
     {
-        $Products = Product::all();
+        if (Auth::id() == 1) {
+            $Products = Product::all();
+        } else {
+            $Products = Product::where('created_by_user_id', Auth::id())->get();
+        }
         return view('products.index', ['data' => $Products, 'page' => $this->page_name]);
     }
 
@@ -42,7 +47,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
+        // return $request;
 
         $id =   Product::insertGetId($request->except('_token', 'img', 'title', 'description'));
         if ($request->file('img')) {
