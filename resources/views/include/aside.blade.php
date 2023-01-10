@@ -9,13 +9,14 @@
                         class="sidebar-icon">
                         <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                     </span><span class="mt-1 sidebar-text"></span></a></li>
-
+        
             <li class="nav-item active"><a href="{{ route('dashboard') }}" class="nav-link"><span
                         class="sidebar-icon"><i class="far fa-tachometer-alt-fast"></i> </span><span
                         class="sidebar-text">Dashboard</span></a>
             </li>
 
             {{-- home start --}}
+            @if(Auth::user()->role_name=="admin")
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
                     data-bs-toggle="collapse" data-bs-target="#submenu-app1"><span><span class="sidebar-icon"><i
                                 class="far fa-home-alt"></i> </span><span class="sidebar-text">Home</span>
@@ -40,6 +41,7 @@
                     </ul>
                 </div>
             </li>
+            @endif
 
             {{-- home end --}}
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
@@ -58,10 +60,18 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('products.product') }}"><span
                                 class="sidebar-text-contracted">N</span> <span class="sidebar-text">All
                                 News</span></a></li>
+                    @php
+                    @$categories = DB::table('product_categories')->get();
+                    @endphp
+                    @foreach($categories as $key => $value)
+                    <li class="nav-item"><a class="nav-link" href="{{ route('catergory-wise-news',$value->name) }}"><span
+                                class="sidebar-text-contracted">N</span> <span class="sidebar-text">{{$value->name}}</span></a></li>
+                    @endforeach          
                 </ul>
             </div>
         </li>
 
+            @if(Auth::user()->role_name=="admin")
 
             <li class="nav-item"><span class="nav-link collapsed d-flex justify-content-between align-items-center"
                     data-bs-toggle="collapse" data-bs-target="#about"><span><span class="sidebar-icon"><i class="fas fa-cogs"></i></span><span class="sidebar-text">Page Setting</span>
@@ -81,6 +91,7 @@
 
                 </div>
             </li>
+            @endif
 
 
 
@@ -150,13 +161,16 @@
             <li class="nav-item"><a href="{{ route('clients') }}" class="nav-link"><span class="sidebar-icon"><i
                             class="far fa-user-tie"></i></span><span class="sidebar-text">Our Client</span></a>
             </li> --}}
+            @if(Auth::user()->role_name=="admin")
+
             <li class="nav-item"><a href="{{ route('siteinfo') }}" class="nav-link"><span class="sidebar-icon"><i
                             class="fa fa-info-circle"></i></span><span class="sidebar-text">Site Setting</span></a>
             </li>
-
+            
             <li class="nav-item"><a href="{{ url('users') }}" class="nav-link"><span class="sidebar-icon"><i
                             class="fa fa-users"></i></span><span class="sidebar-text">Users</span></a>
             </li>
+           
 
             <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700">
 
@@ -168,6 +182,7 @@
             <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700">
 
             </li>
+            @endif
 
         </ul>
     </div>

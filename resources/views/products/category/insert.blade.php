@@ -30,6 +30,25 @@
                                     <option value="0">Deactive</option>
                                 </select>
                             </div>
+                            <div class="form-group col-sm-4">
+                                <label for="" class="text-dark"> <b>Is Primary</b> </label>
+                                <select required name="is_primary" type="text" class="form-control"
+                                    placeholder="Is Primary">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="" class="text-dark"> <b>Sl. No.</b> </label>
+                                <select required name="arrangement_no" type="text" class="form-control"
+                                    placeholder="Sl. No.">
+                                    <option value="1">1</option>
+
+                                    @foreach($data as $key => $value)
+                                     <option value="{{$key+2}}">{{$key+2}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b> Short Description</b><span style="color:red;">*</span> </label>
                                 <textarea required name="massage" type="text" class="form-control" placeholder="Description"></textarea>

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('images');
             $table->string('massage');
             $table->boolean('status');
+            $table->tinyInteger('is_primary')->default(0)->nullable();
+            $table->tinyInteger('arrangement_no')->default(0)->nullable();
             $table->timestamps();
         });
     }

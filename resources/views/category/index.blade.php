@@ -62,8 +62,7 @@
                     <thead class="text-dark">
                         <tr>
                             <th>S.NO</th>
-                            <th>name </th>
-    
+                            <th>Name </th>
                             <th>images</th>
                             <th>Description</th>
                             <th>Action 1</th>
@@ -101,10 +100,10 @@
                                 @include('category.maasage')
                                 <td><a href="#" data-bs-toggle="modal" data-bs-target="#modal-default{{$category->id}}"
                                         class="btn btn-info btn-sm"><i class="far fa-eye"></i></a> </td>
-                                <td><a href="{{ route('category.edit', $category->id) }}"
+                                <td><a @if(Auth::user()->role_name=="Admin") style="pointer-events: none;" title="You don't have permisssin for edit" @endif href="{{ route('category.edit', $category->id) }}"
                                         class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
                                 </td>
-                                <td><a href="{{ route('category.delete', $category->id) }}"
+                                <td><a @if(Auth::user()->role_name!="Admin") style="pointer-events: none;" title="You don't have permisssin for delete" @endif href="{{ route('category.delete', $category->id) }}"
                                         class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                                 <td><a href="{{ route('category.status', $category->id) }}"

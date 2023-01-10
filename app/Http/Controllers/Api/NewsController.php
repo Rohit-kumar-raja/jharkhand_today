@@ -21,8 +21,9 @@ class NewsController extends Controller
 
     public function news_category()
     {
-        $news_category = ProductCategory::where('status', 1)->orderByDesc('id')->get();
-        return response()->json(['news_category' => $news_category]);
+        $news_category = ProductCategory::where('status', 1)->where('is_primary',1)->orderByDesc('id','product_categories')->get();
+        $extra_category = ProductCategory::where('status', 1)->where('is_primary',0)->orderByDesc('id','product_categories')->get();
+        return response()->json(['news_category' => $news_category,'extra_category'=>$extra_category]);
     }
 
     public function news()

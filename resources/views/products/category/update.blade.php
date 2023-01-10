@@ -57,6 +57,23 @@
                                     <option value="0">Deactive</option>
                                 </select>
                             </div>
+                            <div class="form-group col-sm-4">
+                                <label for="" class="text-dark"> <b>Is Primary</b> </label>
+                                <select required name="is_primary" type="text" class="form-control"
+                                    placeholder="Is Primary">
+                                    <option @if($data->is_primary==0) {{'selected'}} @endif value="0">No</option>
+                                    <option @if($data->is_primary==1) {{'selected'}} @endif value="1">Yes</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="" class="text-dark"> <b>Sl. No.</b> </label>
+                                <select required name="arrangement_no" type="text" class="form-control"
+                                    placeholder="Sl. No.">
+                                    @foreach($all_category as $key => $value)
+                                     <option @if($data->arrangement_no==$key+1) {{'selected'}} @endif value="{{$key+1}}">{{$key+1}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-group col-sm-12">
                                 <label for="" class="text-dark"> <b>Description</b><span style="color:red;">*</span> </label>
                                 <textarea name="massage" id="massage" class="form-control" placeholder="message">{{ $data->massage }}</textarea>

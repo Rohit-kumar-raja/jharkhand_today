@@ -71,7 +71,9 @@ Route::get('/contactus/status/{id}', [ContactusController::class, 'status'])->mi
 Route::get('/contactus/update/{id}', [ContactusController::class, 'edit'])->middleware('auth')->name('contactus.edit');
 Route::post('/contactus/update', [ContactusController::class, 'update'])->middleware('auth')->name('contactus.update');
 // contactus end
+Route::get('/single-news/{category}', [ProductController::class, 'singleCategoryNews'])->middleware('auth')->name('catergory-wise-news');
 
+Route::post('/news/category', [ProductCategoryController::class, 'store'])->middleware('auth')->name('products.category.insert');
 
 // about start
 Route::get('/page/setting', [AboutController::class, 'index'])->middleware('auth')->name('about');

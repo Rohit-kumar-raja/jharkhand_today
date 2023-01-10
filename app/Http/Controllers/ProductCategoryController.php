@@ -34,6 +34,12 @@ class ProductCategoryController extends Controller
     public function store(Request $request)
     {
 
+        $checkSlNoExist = ProductCategory::where('arrangement_no',$request->arrangement_no)->exists();
+        if($checkSlNoExist)
+        {
+            return redirect()->back()->with(['delete' => 'This Sl no is already used please try another']);
+        }
+
         $id =   ProductCategory::insertGetId($request->except('_token'));
         if ($request->file('images')) {
             ProductCategory::where('id', $id)->update(['images' => $this->insert_image($request->file('images'), 'productcategory')]);
@@ -69,7 +75,8 @@ class ProductCategoryController extends Controller
     public function edit($id)
     {
         $data = ProductCategory::find($id);
-        return view('products.category.update', ["data" => $data,'page'=>$this->page_name]);
+        $productCategory = ProductCategory::all();
+        return view('products.category.update', ["data" => $data,'all_category'=>$productCategory,'page'=>$this->page_name]);
     }
 
     /**
@@ -86,6 +93,7 @@ class ProductCategoryController extends Controller
         if ($request->file('images')) {
             $this->update_images('product_categories', $id, $request->file('images'), 'productcategory', 'images');
         }
+        
         return redirect()->route('products.category')->with(['update' => "Data successfully Updated"]);
     }
 

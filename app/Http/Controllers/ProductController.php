@@ -15,14 +15,22 @@ class ProductController extends Controller
     public $page_name = 'News';
     public function index()
     {
-        if (Auth::id() == 1) {
-            $Products = Product::all();
-        } else {
-            $Products = Product::where('created_by_user_id', Auth::id())->get();
-        }
+        // if (Auth::id() == 1) {
+        // } else {
+        //     $Products = Product::where('created_by_user_id', Auth::id())->get();
+        // }
+        $Products = Product::all();
         return view('products.index', ['data' => $Products, 'page' => $this->page_name]);
     }
 
+    public function singleCategoryNews(Request $request)
+    {
+        $category = ProductCategory::where('name',$request->category)->first();
+        
+        $products = Product::where('category',$category->id)->get();
+        
+        return view('products.index', ['data' => $products, 'page' => $this->page_name]);
+    }
     public  function insert()
     {
         $category = ProductCategory::all();

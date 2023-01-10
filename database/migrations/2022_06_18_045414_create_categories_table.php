@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('images');
             $table->string('massage');
+            $table->tinyInteger('is_primary')->default(0)->nullable();
+            $table->tinyInteger('arrangement_no')->default(0)->nullable();
             $table->string('status');
             $table->timestamps();
         });

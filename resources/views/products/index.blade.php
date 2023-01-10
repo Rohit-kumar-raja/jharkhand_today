@@ -98,13 +98,13 @@
                                 @include('products.maasage')
                                 <td><a href="#" data-bs-toggle="modal" data-bs-target="#modal-default{{ $services->id}}"
                                         class="btn btn-info btn-sm"><i class="far fa-eye"></i></a> </td>
-                                <td><a href="{{ route('products.product.edit', $services->id) }}"
+                                <td><a @if($services->created_by_user_id!=Auth::user()->id &&  Auth::user()->role_name!="admin") style="pointer-events: none;" @endif href="{{ route('products.product.edit', $services->id) }}"
                                         class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
                                 </td>
-                                <td><a href="{{ route('products.product.delete', $services->id) }}"
+                                <td><a  @if($services->created_by_user_id!=Auth::user()->id &&  Auth::user()->role_name!="admin") style="pointer-events: none;" @endif  href="{{ route('products.product.delete', $services->id) }}"
                                         class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                 </td>
-                                <td><a href="{{ route('products.product.status', $services->id) }}"
+                                <td><a  @if($services->created_by_user_id!=Auth::user()->id &&  Auth::user()->role_name!="admin") style="pointer-events: none;" @endif  href="{{ route('products.product.status', $services->id) }}"
                                         class="btn @if ($services->status == 1) btn-success @endif btn-secondary  btn-sm">
                                         @if ($services->status == 1)
                                             Active

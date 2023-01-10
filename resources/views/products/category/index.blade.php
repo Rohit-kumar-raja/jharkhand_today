@@ -94,13 +94,13 @@
                                 @include('products.category.maasage')
                                 <td><a href="#" data-bs-toggle="modal" data-bs-target="#modal-default{{$ProductCategory->id}}"
                                         class="btn btn-info btn-sm"><i class="far fa-eye"></i></a> </td>
-                                <td><a href="{{ route('products.category.edit', $ProductCategory->id) }}"
-                                        class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
+                                <td><a  @if(Auth::user()->role_name!="admin") style="pointer-events: none;"  @endif href="{{ route('products.category.edit', $ProductCategory->id) }}"
+                                        class="btn btn-warning btn-sm"><i class="far fa-edit" ></i></a>
                                 </td>
-                                <td><a href="{{ route('products.category.delete', $ProductCategory->id) }}"
+                                <td><a @if(Auth::user()->role_name!="admin") style="pointer-events: none;" title="You don't have permisssin for delete" @endif href="{{ route('products.category.delete', $ProductCategory->id) }}"
                                         class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                 </td>
-                                <td><a href="{{ route('products.category.status', $ProductCategory->id) }}"
+                                <td><a  @if(Auth::user()->role_name!="admin") style="pointer-events: none;"  title="You don't have permisssin for status update" @endif href="{{ route('products.category.status', $ProductCategory->id) }}"
                                         class="btn @if ($ProductCategory->status == 1) btn-success @endif btn-secondary  btn-sm">
                                         @if ($ProductCategory->status == 1)
                                             Active

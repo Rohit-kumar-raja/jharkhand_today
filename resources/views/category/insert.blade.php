@@ -26,6 +26,23 @@
 
 
                             <div class="form-group col-sm-4">
+                                <label for="" class="text-dark"> <b>Is Primary</b> </label>
+                                <select required name="is_primary" type="text" class="form-control"
+                                    placeholder="Is Primary">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="" class="text-dark"> <b>Sl. No.</b> </label>
+                                <select required name="arrangement_no" type="text" class="form-control"
+                                    placeholder="Sl. No.">
+                                    @foreach($ProductCategory as $key => $value)
+                                     <option value="{{$key}}">{{$key}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>status</b> </label>
                                 <select required name="status" type="text" class="form-control"
                                     placeholder="Title">
