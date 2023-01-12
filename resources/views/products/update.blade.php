@@ -66,7 +66,7 @@
                             <div class="form-group col-sm-4">
                                 <label for="" class="text-dark"> <b>Select Category</b><span style="color:red;">*</span> </label>
                                 <select required name="category" class="form-control">
-                                    <option value="{{ $data->categories->id }}">{{ $data->categories->name ?? '' }}</option>
+                                    <option value="{{ $data->id }}">{{ $data->categories->name ?? '' }}</option>
                                     @foreach ($category as $data1)
                                     <option value="{{ $data1->id }}">{{ $data1->name }}</option>
                                     @endforeach
