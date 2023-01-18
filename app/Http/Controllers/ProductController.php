@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Models\ProductFeature;
 use App\Models\ProductImage;
+use App\Models\Slider;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 
@@ -83,15 +84,44 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function status($id)
+    public function status(Request $request)
     {
-        $status = Product::find($id);
+        $status = Product::find($request->id);
+        $msg = "";
+
+        if ($request->isChecked == 1)
+        {
+            $newsImage = ProductImage::where('product_id', $request->id)->first();
+
+            $slider = new Slider();
+            $slider->title = $status->slug;
+            $slider->sub_title = $status->log_title;
+            $slider->image_name = $newsImage->name;
+            $slider->description = "";
+            $slider->is_deleted = 1;
+            $slider->save();
+            $msg = "Added to Breaking News & Slider. + ";
+        }
+        else
+        {
+            $found = Slider::where('title', $request->slug)->first();
+            // return $found;
+            if ($found)
+            {
+                $found->delete();
+                $msg = "Removed from Breaking News & Slider. + ";
+            }
+        }
+
         if ($status->status == 1) {
-            Product::where('id', $id)->update(['status' => '0']);
-            return redirect()->back()->with('status', 'News Disapproved Successfully');
+            Product::where('id', $request->id)->update(['status' => '0']);
+            $msg .= "News Disapproved Successfully";
+            return redirect()->back()->with('status', $msg);
         } else {
-            Product::where('id', $id)->update(['status' => '1']);
-            return redirect()->back()->with('status1', 'News Approved Successfully');
+            $msg .= "News Approved Successfully";
+
+            Product::where('id', $request->id)->update(['status' => '1']);
+            return redirect()->back()->with('status1', $msg);
         }
     }
 

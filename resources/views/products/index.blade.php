@@ -24,12 +24,14 @@
                                 data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form id="approveForm">
+                            <form action="{{ route('products.product.status') }}" method="POST">
+                                @csrf
                                 <div class="container">
                                     <div class="row">
 
                                         <div class="form-group col-sm-12">
                                             <input type="hidden" name="id" id="id">
+                                            <input type="hidden" name="slug" id="slug">
                                             <label for="" class="text-dark"> <b>News:</b> </label>
                                             <span class="text-dark" name="news" id="news"></span>
                                         </div>
@@ -43,17 +45,20 @@
                                         </div>
 
                                         <div class="form-check form-switch col-sm-4">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault" onchange="breakingNewsSelection(this)">
-                                            <label class="form-check-label text-dark" for="flexCheckDefault"><b>Breaking
+                                            <input class="form-check-input" type="checkbox" name="isChecked" value="0"
+                                                id="isChecked" onchange="breakingNewsSelection(this)">
+                                            <label class="form-check-label text-dark" for="isChecked"><b>Breaking
                                                     News & Slider</b> </label>
                                         </div>
 
                                     </div>
+
+                                    <div class="row">
+                                    </div>
                                 </div>
                                 <hr>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary" id="btnSave"></button>
+                                    <button type="submit" class="btn btn-primary" id="btnSave"></button>
                                 </div>
                             </form>
                         </div>
@@ -157,7 +162,7 @@
                                 <td>
                                     @if (Auth::user()->role_name == 'admin')
                                         {{-- <a href="{{ route('products.product.status', $services->id) }}" --}}
-                                        <a onclick="approveNews('{{ $services->id }}', '{{ $services->log_title }}')"
+                                        <a onclick="approveNews('{{ $services->id }}', '{{ $services->log_title }}', '{{ $services->slug }}', '{{ $services->status }}')"
                                             class="btn @if ($services->status == 1) btn-success @endif btn-secondary  btn-sm">
                                             @if ($services->status == 1)
                                                 Approved
@@ -186,22 +191,25 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
         <script>
-            function approveNews(id, news) {
+            function approveNews(id, news, slug, status) {
                 $('#approveModal').modal('show');
-                $('#approveForm').trigger("reset");
                 $("#id").val(id);
                 $("#news").html(news);
+                $("#slug").val(slug);
                 $("#modalTitle").html("News Approval");
-                $("#btnSave").html("Approve");
+                if (status == 1) {
+                    $("#btnSave").html("DISAPPROVE");
+                } else {
+                    $("#btnSave").html("APPROVE");
+                }
             }
 
             function breakingNewsSelection(obj) {
                 if ($(obj).is(":checked")) {
-                    alert("Yes checked"); //when checked
+                    $("#isChecked").val(1);
                 } else {
-                    alert("Not checked"); //when not checked
+                    $("#isChecked").val(0);
                 }
-
             }
         </script>
     @endslot

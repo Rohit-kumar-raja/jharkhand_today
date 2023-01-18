@@ -88,7 +88,7 @@ Route::post('/page/setting/update', [AboutController::class, 'update'])->middlew
 Route::get('/news', [ProductController::class, 'index'])->middleware('auth')->name('products.product');
 Route::post('/news', [ProductController::class, 'store'])->middleware('auth')->name('products.product.insert');
 Route::get('/news/delete/{id}', [ProductController::class, 'destroy'])->middleware('auth')->name('products.product.delete');
-Route::get('/news/status/{id}', [ProductController::class, 'status'])->middleware('auth')->name('products.product.status');
+Route::post('/news/status', [ProductController::class, 'status'])->middleware('auth')->name('products.product.status');
 Route::get('/news/update/{id}', [ProductController::class, 'edit'])->middleware('auth')->name('products.product.edit');
 Route::post('/news/update', [ProductController::class, 'update'])->middleware('auth')->name('products.product.update');
 Route::get('/news/insert', [ProductController::class, 'insert'])->middleware('auth')->name('products.product.insert.view');
