@@ -11,19 +11,66 @@
                                 </path>
                             </svg></a></li>
                     <li class="breadcrumb-item"><a href="#">{{ env('APP_NAME') }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{$page}}</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $page }}</li>
                 </ol>
             </nav>
+
+            <!-- Approval modal -->
+            <div class="modal fade" id="approveModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="h6 modal-title" id="modalTitle"></h2><button type="button" class="btn-close"
+                                data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="approveForm">
+                                <div class="container">
+                                    <div class="row">
+
+                                        <div class="form-group col-sm-12">
+                                            <input type="hidden" name="id" id="id">
+                                            <label for="" class="text-dark"> <b>News:</b> </label>
+                                            <span class="text-dark" name="news" id="news"></span>
+                                        </div>
+
+                                        <div class="form-group"></div>
+
+                                        <br>
+                                        <hr>
+
+                                        <div class="col-sm-4">
+                                        </div>
+
+                                        <div class="form-check form-switch col-sm-4">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault" onchange="breakingNewsSelection(this)">
+                                            <label class="form-check-label text-dark" for="flexCheckDefault"><b>Breaking
+                                                    News & Slider</b> </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary" id="btnSave"></button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
 
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0 col-10">
-                    <h1 class="h4">{{$page}}</h1>
+                    <h1 class="h4">{{ $page }}</h1>
 
                 </div>
                 <div class="col-2">
                     <a href="{{ route('products.product.insert.view') }}" class="btn btn-block btn-gray-800 mb-3 btn-sm">Add
-                         {{$page}}</a>
+                        {{ $page }}</a>
 
                 </div>
             </div>
@@ -96,32 +143,37 @@
 
 
                                 @include('products.maasage')
-                                <td><a href="#" data-bs-toggle="modal" data-bs-target="#modal-default{{ $services->id}}"
-                                        class="btn btn-info btn-sm"><i class="far fa-eye"></i></a> </td>
-                                <td><a @if($services->created_by_user_id!=Auth::user()->id &&  Auth::user()->role_name!="admin") style="pointer-events: none;" @endif href="{{ route('products.product.edit', $services->id) }}"
+                                <td><a href="#" data-bs-toggle="modal"
+                                        data-bs-target="#modal-default{{ $services->id }}" class="btn btn-info btn-sm"><i
+                                            class="far fa-eye"></i></a> </td>
+                                <td><a @if ($services->created_by_user_id != Auth::user()->id && Auth::user()->role_name != 'admin') style="pointer-events: none;" @endif
+                                        href="{{ route('products.product.edit', $services->id) }}"
                                         class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
                                 </td>
-                                <td><a  @if($services->created_by_user_id!=Auth::user()->id &&  Auth::user()->role_name!="admin") style="pointer-events: none;" @endif  href="{{ route('products.product.delete', $services->id) }}"
+                                <td><a @if ($services->created_by_user_id != Auth::user()->id && Auth::user()->role_name != 'admin') style="pointer-events: none;" @endif
+                                        href="{{ route('products.product.delete', $services->id) }}"
                                         class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                                 <td>
                                     @if (Auth::user()->role_name == 'admin')
-                                    <a href="{{ route('products.product.status', $services->id) }}"
-                                        class="btn @if ($services->status == 1) btn-success @endif btn-secondary  btn-sm">
-                                        @if ($services->status == 1)
-                                        Approved
-                                        @else
-                                        Approve
-                                        @endif
-                                    </a>
+                                        {{-- <a href="{{ route('products.product.status', $services->id) }}" --}}
+                                        <a onclick="approveNews('{{ $services->id }}', '{{ $services->log_title }}')"
+                                            class="btn @if ($services->status == 1) btn-success @endif btn-secondary  btn-sm">
+                                            @if ($services->status == 1)
+                                                Approved
+                                            @else
+                                                Approve
+                                            @endif
+                                        </a>
                                     @else
-                                    <span class="btn @if ($services->status == 1) btn-success @endif btn-secondary  btn-sm">
-                                        @if ($services->status == 1)
-                                            Approved
-                                        @else
-                                            Pending for Approval
-                                        @endif
-                                    </span>
+                                        <span
+                                            class="btn @if ($services->status == 1) btn-success @endif btn-secondary  btn-sm">
+                                            @if ($services->status == 1)
+                                                Approved
+                                            @else
+                                                Pending for Approval
+                                            @endif
+                                        </span>
                                     @endif
                                 </td>
                             </tr>
@@ -130,5 +182,27 @@
                 </table>
             </div>
         </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script>
+            function approveNews(id, news) {
+                $('#approveModal').modal('show');
+                $('#approveForm').trigger("reset");
+                $("#id").val(id);
+                $("#news").html(news);
+                $("#modalTitle").html("News Approval");
+                $("#btnSave").html("Approve");
+            }
+
+            function breakingNewsSelection(obj) {
+                if ($(obj).is(":checked")) {
+                    alert("Yes checked"); //when checked
+                } else {
+                    alert("Not checked"); //when not checked
+                }
+
+            }
+        </script>
     @endslot
 </x-layout>
